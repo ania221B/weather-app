@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url(/src/assets/fonts/DMSans/DMSans-Light.woff2) format('woff2'),
+    url(/src/assets/fonts/DMSans/DMSans-Light.woff) format('woff');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url(/src/assets/fonts/DMSans/DMSans-Medium.woff2) format('woff2'),
+    url(/src/assets/fonts/DMSans/DMSans-Medium.woff) format('woff');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url(/src/assets/fonts/DMSans/DMSans-SemiBold.woff2) format('woff2'),
+    url(/src/assets/fonts/DMSans/DMSans-SemiBold.woff) format('woff');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url(/src/assets/fonts/DMSans/DMSans-SemiBoldItalic.woff2) format('woff2'),
+    url(/src/assets/fonts/DMSans/DMSans-SemiBoldItalic.woff) format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'DM Sans';
+  src: url(/src/assets/fonts/DMSans/DMSans-Bold.woff2) format('woff2'),
+    url(/src/assets/fonts/DMSans/DMSans-Bold.woff) format('woff');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url(/src/assets/fonts/BricolageGrotesque/BricolageGrotesque-Bold.woff2)
+      format('woff2'),
+    url(/src/assets/fonts/BricolageGrotesque/BricolageGrotesque-Bold.woff)
+      format('woff');
+  font-weight: 700;
+}
+
+$ff-primary: 'DM Sans', sans-serif;
+$ff-secondary: 'Bricolage Grotesque', serif;
+
+$font-sizes: (
+  900: 6rem,
+  // preset-1
+  800: 3.25rem,
+  // preset-2
+  700: 2rem,
+  // preset-3
+  600: 1.75rem,
+  // preset-4
+  500: 1.25rem,
+  // preset-5
+  400: 1.125rem,
+  // preset-6
+  300: 1rem,
+  // preset-7
+  200: 0.875rem,
+  // preset-8
+);
+
+$fw-300: 300;
+$fw-500: 500;
+$fw-600: 600;
+$fw-700: 700;

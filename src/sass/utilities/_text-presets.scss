@@ -1,0 +1,28 @@
+@use '../abstracts/' as *;
+
+.text-preset-1 {
+  font-size: fs(900);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.125rem;
+  line-height: 1;
+}
+.text-preset-2 {
+  font-family: $ff-secondary;
+  font-size: fs(800);
+}
+
+.text-preset-3 {
+  font-size: fs(700);
+  font-weight: $fw-300;
+  line-height: 1;
+}
+
+.text-preset-4 {
+  font-size: fs(600);
+  font-weight: $fw-700;
+}
+.text-preset-5 {
+  font-size: fs(500);
+  font-weight: $fw-600;
+}

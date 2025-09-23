@@ -1,0 +1,25 @@
+@use '../abstracts/' as *;
+
+.weather {
+  display: grid;
+  gap: size(400);
+
+  @include mq(large) {
+    grid-template-columns: 1fr minmax(18rem, 24rem);
+
+    &-current {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    &-daily {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    &-hourly {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use '../abstracts/' as *;
+
+.stack-grid {
+  --max-width: #{$bg-max-width};
+  --padding-inline: 1.5rem;
+  @include fluid-clamp($bg-padding, true, 'padding-block');
+  display: grid;
+  grid-template-columns:
+    var(--padding-inline) min(
+      calc(100% - (var(--padding-inline) * 2)),
+      var(--max-width)
+    )
+    var(--padding-inline);
+  grid-template-rows: var(--padding-block) 1fr var(--padding-block);
+
+  & > picture {
+    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    border-radius: border-radius(20);
+  }
+}
+
+.bg-img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.main-content {
+  grid-column: 2 / -2;
+  grid-row: 2;
+}

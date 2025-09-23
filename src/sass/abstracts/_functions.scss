@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use 'color-palette' as *;
+@use 'typography' as *;
+@use 'sizes' as *;
+
+@function clr($color, $map: $semantic-colors, $hasShade: false, $shade: null) {
+  @if ($hasShade == true) {
+    @if ($shade != null) {
+      @if map.has-key($map, $color) and
+        map.has-key(map.get($map, $color), $shade)
+      {
+        @return map.get(map.get($map, $color), $shade);
+      } @else {
+        @error '#{$map} does not have the color or shade!';
+      }
+    } @else {
+      @error 'You need to provide $shade value';
+    }
+  }
+
+  @if map.has-key($map, $color) {
+    @return map.get($map, $color);
+  } @else {
+    @error '#{$map} does not have that color!';
+  }
+}
+
+@function fs($font-size) {
+  @if map.has-key($font-sizes, $font-size) {
+    @return map.get($font-sizes, $font-size);
+  } @else {
+    @error '$font-sizes does not have that size!';
+  }
+}
+
+@function size($size) {
+  @if map.has-key($spacing, $size) {
+    @return map.get($spacing, $size);
+  } @else {
+    @error '$sizes does not have that size!';
+  }
+}
+@function border-radius($size) {
+  @if map.has-key($border-radius, $size) {
+    @return map.get($border-radius, $size);
+  } @else {
+    @error '$border-radius does not have that size!';
+  }
+}

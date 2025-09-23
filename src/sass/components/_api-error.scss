@@ -1,0 +1,16 @@
+@use '../abstracts/' as *;
+
+.api-error {
+  padding-block-start: var(--padding-block-start);
+  @include fluid-clamp($padding-header, false, 'padding-block-start');
+  display: grid;
+  grid-auto-flow: row;
+  gap: size(300);
+  justify-items: center;
+  text-align: center;
+
+  &__icon > * {
+    width: 2.625rem;
+    height: 3.125rem;
+  }
+}

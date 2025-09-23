@@ -1,0 +1,50 @@
+@use '../abstracts/' as *;
+
+.weather-hourly {
+  --flow-spacer: #{size(200)};
+  max-height: 43.3125rem;
+
+  display: grid;
+  flex-direction: row;
+
+  background-color: clr(weather-hourly-bg);
+  border-radius: border-radius(20);
+  padding-block: var(--padding-block);
+  padding-inline: var(--padding-inline);
+  @include fluid-clamp($padding-weather-hourly-inline, true, 'padding-inline');
+  @include fluid-clamp($padding-weather-hourly-inline, true, 'padding-block');
+  @include mq(60em, 'between', 70.0625em) {
+    max-height: 59.25rem;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__list {
+    padding: 0;
+    margin-bottom: 0;
+
+    list-style: none;
+    z-index: 1;
+
+    position: relative;
+
+    display: grid;
+    grid-auto-flow: row;
+    gap: size(200);
+
+    max-height: 37rem;
+    overflow-y: auto;
+
+    @include mq(large, between, 77em) {
+      max-height: 56.125rem;
+    }
+
+    & > * {
+      margin-right: size(125);
+    }
+  }
+}

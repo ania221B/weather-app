@@ -1,0 +1,59 @@
+@use '../abstracts/' as *;
+
+.weather-tile {
+  background-color: clr(weather-tile-bg);
+  border: 1px solid clr(weather-tile-br);
+  border-radius: border-radius(12);
+  padding-block: size(250);
+  padding-inline: size(250);
+  color: clr(weather-tile-text);
+  &__category {
+    font-size: fs(400);
+    font-weight: $fw-500;
+  }
+
+  dl {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: fs(200);
+  }
+
+  .weather-current &__category {
+    color: clr(weather-tile-category);
+  }
+
+  .weather-current &__value {
+    font-size: fs(600);
+    font-weight: $fw-300;
+  }
+
+  .weather-daily & {
+    display: grid;
+    grid-auto-flow: row;
+    justify-items: center;
+    gap: size(200);
+    padding-inline: size(125);
+    padding-block: size(200);
+  }
+
+  .weather-daily--loading & {
+    height: 10.3125rem;
+  }
+
+  .weather-hourly & {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+
+    padding-inline-start: size(150);
+    padding-inline-end: size(200);
+    padding-block: size(125);
+    border-radius: border-radius(8);
+    background-color: clr(weather-tile-bg-secondary);
+  }
+
+  .weather-hourly--loading & {
+    height: 3.75rem;
+  }
+}

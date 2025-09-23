@@ -1,0 +1,159 @@
+@use '../abstracts/' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-align: center;
+  border: none;
+  background: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    margin: auto;
+    aspect-ratio: 1;
+    display: block;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    z-index: -1;
+  }
+
+  &::before {
+    inset: 0;
+    width: size(100);
+    background-color: var(--button-hover-bg, #{clr(btn-bg-hover)});
+    transition-delay: 50ms;
+  }
+  &::after {
+    inset: 0;
+    width: size(200);
+    background-color: var(
+      --button-hover-bg-secondary,
+      #{clr(btn-bg-hover-secondary)}
+    );
+  }
+
+  &:hover::before,
+  &:hover::after,
+  &-units:focus-visible::before,
+  &-units:focus-visible::after,
+  &-toggle:focus-visible::before,
+  &-toggle:focus-visible::after {
+    animation-name: expand;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  [data-state='open'] &-units:not(:hover):not(:focus-visible)::before,
+  [data-state='open'] &-units:not(:hover):not(:focus-visible)::after,
+  [data-state='open'] &-toggle:not(:hover):not(:focus-visible)::before,
+  [data-state='open'] &-toggle:not(:hover):not(:focus-visible)::after,
+  [data-state='open']
+    &-toggle:not(.selected)::before
+    [data-state='open']
+    &-toggle:not(.selected)::after {
+    animation-name: none;
+  }
+
+  &:not(:hover):not(:focus-visible)::before,
+  &:not(:hover):not(:focus-visible)::after,
+  &-units:not(:hover):not(:focus-visible)::before,
+  &-units:not(:hover):not(:focus-visible)::after,
+  &-toggle:not(:hover):not(:focus-visible)::before,
+  &-toggle:not(:hover):not(:focus-visible)::after {
+    animation: shrink;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  &:focus-visible {
+    outline: none;
+    outline: size(025) solid var(--button-outline, #{clr(btn-outline)});
+    outline-offset: size(050);
+  }
+
+  &--search {
+    --button-bg: #{clr(search-btn-bg)};
+    --button-text: #{clr(search-btn-text)};
+    --button-outline: #{clr(search-btn-bg)};
+    --button-hover-bg: #{clr(search-btn-bg-hover)};
+    --button-hover-bg-secondary: #{clr(search-btn-bg-hover-secondary)};
+    align-self: stretch;
+    font-size: fs(500);
+    font-weight: $fw-500;
+    padding-block: size(200);
+    padding-inline: size(300);
+    border-radius: border-radius(12);
+  }
+
+  .search-menu__suggestion-list &-toggle,
+  .custom-select__dropdown--weekdays &-toggle {
+    justify-content: start;
+    &:hover,
+    &.selected,
+    &.highlighted {
+      border: 1px solid clr(select-dropdown-br);
+    }
+    &.selected::before,
+    &.selected::after {
+      animation-name: expand;
+      animation-duration: 500ms;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: forwards;
+    }
+    &:not(.selected):not(:hover):not(:focus-visible)::before,
+    &:not(.selected):not(:hover):not(:focus-visible)::after,
+    &.highlighted {
+      animation-name: none;
+    }
+  }
+
+  &--error {
+    padding-block: size(150);
+    padding-inline: size(200);
+    border-radius: border-radius(8);
+    gap: size(125);
+    background-color: clr(btn-error-bg);
+    color: clr(btn-error-text);
+  }
+}
+
+@keyframes expand {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(35);
+  }
+}
+
+@keyframes shrink {
+  0% {
+    opacity: 1;
+    transform: scale(35);
+  }
+  80% {
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

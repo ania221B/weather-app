@@ -1,0 +1,32 @@
+@use '../abstracts/' as *;
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: clr(scrollbar-thumb-clr) clr(scrollbar-track-clr);
+
+  &:hover {
+    scrollbar-color: clr(scrollbar-thumb-clr-hover) clr(scrollbar-track-clr);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: clr(scrollbar-thumb-clr);
+  border-radius: 5px;
+  border: 1px solid #3c3b5e;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: clr(scrollbar-thumb-clr-hover);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: clr(scrollbar-track-clr);
+  border-radius: 5px;
+}
+
+html {
+  scrollbar-gutter: stable;
+}

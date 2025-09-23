@@ -1,0 +1,15 @@
+@use '../abstracts/' as *;
+
+.weather-daily {
+  --flow-spacer: #{size(250)};
+  --card-base-width: 5rem;
+  align-self: start;
+  @include mq(76em) {
+    align-self: end;
+  }
+  ul {
+    padding: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+}

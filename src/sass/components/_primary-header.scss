@@ -1,0 +1,10 @@
+@use '../abstracts/' as *;
+
+.primary-header {
+  padding-block-start: var(--padding-block-start);
+  @include fluid-clamp($padding-header, false, 'padding-block-start');
+  & > * {
+    display: flex;
+    justify-content: space-between;
+  }
+}

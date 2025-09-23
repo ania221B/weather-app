@@ -1,0 +1,17 @@
+@use '../abstracts/' as *;
+
+.loading__icon {
+  animation-name: rotate;
+  animation-duration: 1200ms;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(350deg);
+  }
+}
