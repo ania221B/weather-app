@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react'
-import { IconDropdown } from '../icons'
+import { IconDropdown } from '../../icons'
 import { nanoid } from 'nanoid'
-import WeatherIcon from './WeatherIcon'
-import { useClickOutside } from '../hooks'
-import { checkIndex } from '../utils'
+import { useClickOutside } from '../../hooks'
+import { checkIndex } from '../../utils'
+import { WeatherHourlyList } from '../lists'
 
 function WeatherHourly ({ hourlyWeather }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -115,22 +115,7 @@ function WeatherHourly ({ hourlyWeather }) {
         {/* END OF CUSTOM SELECT */}
       </header>
 
-      <ul className='weather-hourly__list' aria-label='weather hour by hour'>
-        {hours.map(hour => {
-          return (
-            <li key={hour.id} className='weather-tile'>
-              <WeatherIcon weatherCode={hour.weatherCode}></WeatherIcon>
-              <dl>
-                <dt className='sr-only'>time:</dt>
-                <dd>{hour.time}</dd>
-
-                <dt className='sr-only'>temperature:</dt>
-                <dd>{hour.temperature}</dd>
-              </dl>
-            </li>
-          )
-        })}
-      </ul>
+      <WeatherHourlyList hours={hours}></WeatherHourlyList>
     </section>
   )
 }

@@ -1,4 +1,4 @@
-import Logo from './Logo'
+import { Logo } from './ui'
 import UnitsToggle from './UnitsToggle'
 
 function Header ({ units, setUnits, metricUnits, imperialUnits, isMetric }) {

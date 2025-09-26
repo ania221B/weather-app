@@ -1,25 +1,13 @@
 import SearchBar from './SearchBar'
 
-function Search ({
-  location,
-  debouncedLocation,
-  locationList,
-  setLocation,
-  isPending,
-  setCoordinates,
-  setAppError
-}) {
+function Search ({ debouncedQuery, locationList, isPending }) {
   return (
     <header className='search'>
       <h1 className='text-preset-2'>How’s the sky looking today?</h1>
       <SearchBar
-        location={location}
-        debouncedLocation={debouncedLocation}
+        debouncedQuery={debouncedQuery}
         locationList={locationList}
         isPending={isPending}
-        setCoordinates={setCoordinates}
-        setAppError={setAppError}
-        setLocation={setLocation}
       ></SearchBar>
     </header>
   )

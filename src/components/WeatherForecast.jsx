@@ -1,19 +1,20 @@
 import { nanoid } from 'nanoid'
 import { getTime, getWeekday } from '../utils'
 import Loading from './Loading'
-import WeatherCurrent from './WeatherCurrent'
-import WeatherDaily from './WeatherDaily'
-import WeatherHourly from './WeatherHourly'
+import { WeatherCurrent, WeatherDaily, WeatherHourly } from './sections'
+import { useSelector } from 'react-redux'
 
-function WeatherForecast ({ weather, coordinates, appError, isPending }) {
+function WeatherForecast ({ weather, coordinates, isPending }) {
+  const { resultsError } = useSelector(store => store.resultsError)
+
   if (isPending) {
     return <Loading></Loading>
   }
 
-  if (appError) {
+  if (resultsError) {
     return (
       <div className='weather section' role='status' aria-live='polite'>
-        <p className='text-preset-4 clr-neutral-000 mx-auto'>{appError}</p>
+        <p className='text-preset-4 clr-neutral-000 mx-auto'>{resultsError}</p>
       </div>
     )
   }

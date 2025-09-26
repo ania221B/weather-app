@@ -2,16 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import { IconLoading, IconSearch } from '../icons'
 import { useClickOutside } from '../hooks'
 import { checkIndex } from '../utils'
+import { useDispatch, useSelector } from 'react-redux'
+import { setLocation, setQuery } from '../features/location/locationSlice'
+import { setResultsError } from '../features/error/errorSlice'
+import { SuggestionsList } from './lists'
 
-function SearchBar ({
-  location,
-  debouncedLocation,
-  locationList,
-  isPending,
-  setCoordinates,
-  setAppError,
-  setLocation
-}) {
+function SearchBar ({ debouncedQuery, locationList, isPending }) {
+  const dispatch = useDispatch()
+  const { query } = useSelector(store => store.location)
   const [isExpanded, setIsExpanded] = useState(false)
   const inputRef = useRef(null)
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(0)
@@ -31,24 +29,20 @@ function SearchBar ({
 
     // --- Error logic ---
     // clear previous errors when input changes
-    if (debouncedLocation) {
-      setAppError('')
+    if (debouncedQuery) {
+      dispatch(setResultsError(''))
     }
-    if (
-      !isPending &&
-      locationList.length === 0 &&
-      debouncedLocation.length >= 3
-    ) {
-      setAppError('No search result found!')
+    if (!isPending && locationList.length === 0 && debouncedQuery.length >= 3) {
+      dispatch(setResultsError('No search result found!'))
     } else if (locationList.length > 0) {
-      setAppError('')
+      dispatch(setResultsError(''))
     }
   }, [isPending, locationList])
 
   function handleSubmit (e) {
     e.preventDefault()
 
-    if (!location) {
+    if (!query) {
       setIsExpanded(false)
       return
     }
@@ -56,34 +50,42 @@ function SearchBar ({
     if (locationList?.length > 0) {
       const chosen = locationList[selectedOptionIndex]
 
-      setAppError('')
+      dispatch(setResultsError(''))
 
-      setCoordinates({
-        name: chosen.name,
-        country: chosen.country,
-        latitude: chosen.latitude,
-        longitude: chosen.longitude
-      })
+      dispatch(
+        setLocation({
+          name: chosen.name,
+          country: chosen.country,
+          coordinates: {
+            latitude: chosen.latitude,
+            longitude: chosen.longitude
+          }
+        })
+      )
       setIsExpanded(false)
     } else {
-      setAppError('No search result found!')
+      dispatch(setResultsError('No search result found!'))
     }
   }
 
   function handleChange (e) {
-    setLocation(e.target.value)
+    dispatch(setQuery(e.target.value))
   }
 
   function handleSelect (location) {
-    setAppError('')
-    setCoordinates({
-      name: location.name,
-      country: location.country,
-      latitude: location.latitude,
-      longitude: location.longitude
-    })
+    dispatch(setResultsError(''))
+    dispatch(
+      setLocation({
+        name: location.name,
+        country: location.country,
+        coordinates: {
+          latitude: location.latitude,
+          longitude: location.longitude
+        }
+      })
+    )
     setIsExpanded(false)
-    setLocation(location.name)
+    dispatch(setQuery(location.name))
   }
 
   function handleKeyDown (e) {
@@ -137,63 +139,23 @@ function SearchBar ({
             aria-autocomplete='list'
             aria-activedescendant={`option-${selectedOptionIndex}` || undefined}
             name='search'
-            value={location}
+            value={query}
             onChange={e => handleChange(e)}
             onFocus={() => setIsExpanded(true)}
             onKeyDown={handleKeyDown}
             placeholder='Search for a place...'
             ref={inputRef}
           />
-          {isPending &&
-            inputRef.current === document.activeElement &&
-            location.length > 0 && (
-              <div
-                id='loading-suggestions'
-                className='search-menu__suggestion-list search-menu__suggestion-list--loading'
-                role='status'
-                aria-live='polite'
-              >
-                <div
-                  key='loading-status'
-                  className='search-menu__suggestion-list__item search-menu__suggestion-list--loading__item'
-                >
-                  <div className='loading__icon'>
-                    <IconLoading></IconLoading>
-                  </div>
-                  <p>Search in progress...</p>
-                </div>
-              </div>
-            )}
-          {locationList?.length > 0 && isExpanded && (
-            <ul
-              id='suggestion-list'
-              className='search-menu__suggestion-list'
-              role='listbox'
-              aria-label='Search suggestions'
-              aria-live='polite'
-              data-state='open'
-              ref={dropdownContainerRef}
-            >
-              {locationList.map((location, index) => {
-                return (
-                  <li
-                    key={location.id}
-                    id={`option-${index}`}
-                    role='option'
-                    aria-selected={selectedOptionIndex === index || undefined}
-                    onMouseDown={() => handleSelect(location)}
-                    className={`search-menu__suggestion-list__item btn btn-toggle ${
-                      selectedOptionIndex === index ? 'selected' : ''
-                    }`}
-                  >
-                    <p>
-                      {location.name}, {location.country}
-                    </p>
-                  </li>
-                )
-              })}
-            </ul>
-          )}
+          <SuggestionsList
+            isPending={isPending}
+            query={query}
+            isExpanded={isExpanded}
+            suggestions={locationList}
+            selectedOptionIndex={selectedOptionIndex}
+            onSelect={handleSelect}
+            dropdownContainerRef={dropdownContainerRef}
+            inputRef={inputRef}
+          ></SuggestionsList>
         </div>
 
         <button type='submit' className='btn btn--search'>

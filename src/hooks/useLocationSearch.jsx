@@ -1,15 +1,16 @@
 import { useQuery } from '@tanstack/react-query'
 import { fetchLocation } from '../apis'
 import { normalizeLocations } from '../utils'
-import useDebounce from './useDebounce'
 
 function useLocationSearch (location) {
-  const debounced = useDebounce(location)
   const { data, isPending, error, refetch } = useQuery({
-    queryKey: ['locations', debounced.toLowerCase()],
-    queryFn: () => fetchLocation(debounced),
+    queryKey: ['locations', location.toLowerCase()],
+    queryFn: () => {
+      if (!location || location.length < 3) return []
+      return fetchLocation(location)
+    },
     select: normalizeLocations,
-    enabled: !!debounced && debounced.length >= 3,
+    enabled: !!location && location.length >= 3,
     retry: (failureCount, error) => {
       if (error.response?.status === 400) {
         return false

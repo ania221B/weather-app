@@ -1,9 +1,11 @@
-import currentWeatherSmall from '../assets/images/bg-today-small.svg'
-import currentWeatherLarge from '../assets/images/bg-today-large.svg'
-import { getDateTimeString, getFormattedDate } from '../utils'
-import WeatherIcon from './WeatherIcon'
+import currentWeatherSmall from '../../assets/images/bg-today-small.svg'
+import currentWeatherLarge from '../../assets/images/bg-today-large.svg'
+import { getDateTimeString, getFormattedDate } from '../../utils'
+import WeatherIcon from '../ui/WeatherIcon'
+import { useSelector } from 'react-redux'
 
-function WeatherCurrent ({ coordinates, currentWeather }) {
+function WeatherCurrent ({ currentWeather }) {
+  const { name, country } = useSelector(store => store.location.selected)
   return (
     <section className='weather-current flow'>
       <div className='stack-grid'>
@@ -16,9 +18,7 @@ function WeatherCurrent ({ coordinates, currentWeather }) {
         </picture>
         <div className='main-content weather-current__highlighted-content'>
           <header className='flow'>
-            <h2 className='fs-600 fw-bold'>
-              {`${coordinates.name}, ${coordinates.country}`}
-            </h2>
+            <h2 className='fs-600 fw-bold'>{`${name}, ${country}`}</h2>
             <p>
               <time dateTime={getDateTimeString(currentWeather.time)}>
                 {getFormattedDate(currentWeather.time)}

@@ -7,7 +7,7 @@ import {
   iconSnow,
   iconStorm,
   iconSunny
-} from '../assets/icons/weather-icons'
+} from '../../assets/icons/weather-icons'
 
 function WeatherIcon ({ weatherCode }) {
   const drizzle = [51, 53, 55]

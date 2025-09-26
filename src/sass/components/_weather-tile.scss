@@ -43,7 +43,7 @@
 
   .weather-hourly & {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto max-content;
     align-items: center;
 
     padding-inline-start: size(150);
@@ -51,6 +51,10 @@
     padding-block: size(125);
     border-radius: border-radius(8);
     background-color: clr(weather-tile-bg-secondary);
+
+    .weather-icon {
+      grid-column: 1;
+    }
   }
 
   .weather-hourly--loading & {

@@ -1,14 +1,17 @@
 import { useRef, useState } from 'react'
 import { IconCheckmark, IconUnits } from '../icons'
 import { useClickOutside } from '../hooks'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  checkIsMenuMetric,
+  toggleAllUnits,
+  toggleUnit
+} from '../features/units/unitsSlice'
 
-function UnitsToggle ({
-  units,
-  setUnits,
-  metricUnits,
-  imperialUnits,
-  isMetric
-}) {
+function UnitsToggle () {
+  const dispatch = useDispatch()
+  const units = useSelector(store => store.units)
+  const isMetric = useSelector(checkIsMenuMetric)
   const [isOpen, setIsOpen] = useState(false)
   const dropdownContainerRef = useRef(null)
   const triggerRef = useRef(null)
@@ -20,19 +23,6 @@ function UnitsToggle ({
   function closeDropdown () {
     setIsOpen(false)
     triggerRef.current?.focus
-  }
-
-  function toggleAllUnits () {
-    setUnits(isMetric ? imperialUnits : metricUnits)
-  }
-
-  function toggleUnit (category, value) {
-    setUnits(previous => {
-      return {
-        ...previous,
-        [category]: value
-      }
-    })
   }
 
   useClickOutside(dropdownContainerRef, () => {
@@ -96,7 +86,7 @@ function UnitsToggle ({
               type='button'
               role='menuitem'
               className='btn btn-toggle custom-select__toggle'
-              onClick={toggleAllUnits}
+              onClick={() => dispatch(toggleAllUnits())}
             >
               Switch to {`${isMetric ? 'Imperial' : 'Metric'}`}
             </button>
@@ -107,7 +97,11 @@ function UnitsToggle ({
               type='button'
               role='menuitem'
               className='btn btn-toggle custom-select__toggle'
-              onClick={() => toggleUnit('temperature', 'celsius')}
+              onClick={() =>
+                dispatch(
+                  toggleUnit({ category: 'temperature', value: 'celsius' })
+                )
+              }
             >
               <span>Celsius (°C)</span>
               <span>
@@ -122,7 +116,11 @@ function UnitsToggle ({
               type='button'
               role='menuitem'
               className='btn btn-toggle custom-select__toggle'
-              onClick={() => toggleUnit('temperature', 'fahrenheit')}
+              onClick={() =>
+                dispatch(
+                  toggleUnit({ category: 'temperature', value: 'fahrenheit' })
+                )
+              }
             >
               <span>Fahrenheit (°F)</span>
               <span>
@@ -140,7 +138,9 @@ function UnitsToggle ({
               type='button'
               role='menuitem'
               className='btn btn-toggle custom-select__toggle'
-              onClick={() => toggleUnit('windSpeed', 'kmh')}
+              onClick={() =>
+                dispatch(toggleUnit({ category: 'windSpeed', value: 'kmh' }))
+              }
             >
               <span>km/h</span>
               <span>
@@ -155,7 +155,9 @@ function UnitsToggle ({
               type='button'
               role='menuitem'
               className='btn btn-toggle custom-select__toggle'
-              onClick={() => toggleUnit('windSpeed', 'mph')}
+              onClick={() =>
+                dispatch(toggleUnit({ category: 'windSpeed', value: 'mph' }))
+              }
             >
               <span>mph</span>
               <span>
@@ -173,7 +175,9 @@ function UnitsToggle ({
               type='button'
               role='menuitem'
               className='btn btn-toggle custom-select__toggle'
-              onClick={() => toggleUnit('precipitation', 'mm')}
+              onClick={() =>
+                dispatch(toggleUnit({ category: 'precipitation', value: 'mm' }))
+              }
             >
               <span>Millimeters (mm)</span>
               <span>
@@ -187,7 +191,11 @@ function UnitsToggle ({
             <button
               type='button'
               className='btn btn-toggle custom-select__toggle'
-              onClick={() => toggleUnit('precipitation', 'inch')}
+              onClick={() =>
+                dispatch(
+                  toggleUnit({ category: 'precipitation', value: 'inch' })
+                )
+              }
             >
               <span>Inches (in)</span>
               <span>
