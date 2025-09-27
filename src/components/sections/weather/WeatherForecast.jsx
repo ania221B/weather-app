@@ -1,8 +1,10 @@
 import { nanoid } from 'nanoid'
-import { getTime, getWeekday } from '../utils'
-import Loading from './Loading'
-import { WeatherCurrent, WeatherDaily, WeatherHourly } from './sections'
+import { getTime, getWeekday } from '../../../utils'
 import { useSelector } from 'react-redux'
+import WeatherCurrent from './WeatherCurrent'
+import WeatherDaily from './WeatherDaily'
+import WeatherHourly from './WeatherHourly'
+import Loading from '../loading/Loading'
 
 function WeatherForecast ({ weather, coordinates, isPending }) {
   const { resultsError } = useSelector(store => store.resultsError)

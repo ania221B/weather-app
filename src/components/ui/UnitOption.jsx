@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
-import { IconCheckmark } from '../icons'
-import { toggleUnit } from '../features/units/unitsSlice'
+import { IconCheckmark } from '../../icons'
+import { toggleUnit } from '../../features/units/unitsSlice'
 
 function UnitOption ({ category, value, label, isSelected }) {
   const dispatch = useDispatch()

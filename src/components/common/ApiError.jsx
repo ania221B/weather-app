@@ -1,4 +1,4 @@
-import { IconError, IconRetry } from '../icons'
+import { IconError, IconRetry } from '../../icons'
 
 function ApiError ({ onRetry }) {
   return (

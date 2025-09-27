@@ -1,5 +1,5 @@
-import { Logo } from './ui'
-import UnitsToggle from './UnitsToggle'
+import { UnitsToggle } from '../common'
+import { Logo } from '../ui'
 
 function Header ({ units, setUnits, metricUnits, imperialUnits, isMetric }) {
   return (

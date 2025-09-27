@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
-import { IconLoading, IconSearch } from '../icons'
-import { useClickOutside } from '../hooks'
-import { checkIndex } from '../utils'
+import { IconSearch } from '../../../icons'
+import { useClickOutside } from '../../../hooks'
+import { checkIndex } from '../../../utils'
 import { useDispatch, useSelector } from 'react-redux'
-import { setLocation, setQuery } from '../features/location/locationSlice'
-import { setResultsError } from '../features/error/errorSlice'
-import { SuggestionsList } from './lists'
+import { setLocation, setQuery } from '../../../features/location/locationSlice'
+import { setResultsError } from '../../../features/error/errorSlice'
+import { SuggestionsList } from '../../lists'
 
 function SearchBar ({ debouncedQuery, locationList, isPending }) {
   const dispatch = useDispatch()

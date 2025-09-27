@@ -1,11 +1,9 @@
-import { useState } from 'react'
-import WeatherForecast from './components/WeatherForecast'
-import Search from './components/Search'
-import Header from './components/Header'
-import ApiError from './components/ApiError'
 import useWeatherSearch from './hooks/useWeatherSearch'
 import { useDebounce, useLocationSearch } from './hooks'
 import { useSelector } from 'react-redux'
+import { Header } from './components/layout'
+import { ApiError } from './components/common'
+import { Search, WeatherForecast } from './components/sections'
 
 function App () {
   const units = useSelector(store => store.units)

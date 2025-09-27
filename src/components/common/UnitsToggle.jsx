@@ -1,10 +1,13 @@
 import { useRef, useState } from 'react'
-import { IconUnits } from '../icons'
-import { useClickOutside } from '../hooks'
+import { IconUnits } from '../../icons'
+import { useClickOutside } from '../../hooks'
 import { useDispatch, useSelector } from 'react-redux'
-import { checkIsMenuMetric, toggleAllUnits } from '../features/units/unitsSlice'
-import UnitOption from './UnitOption'
-import UnitCategory from './UnitCategory'
+import {
+  checkIsMenuMetric,
+  toggleAllUnits
+} from '../../features/units/unitsSlice'
+import UnitOption from '../ui/UnitOption'
+import UnitCategory from '../ui/UnitCategory'
 
 function UnitsToggle () {
   const dispatch = useDispatch()

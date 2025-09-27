@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react'
-import { IconDropdown } from '../../icons'
+import { IconDropdown } from '../../../icons'
 import { nanoid } from 'nanoid'
-import { useClickOutside } from '../../hooks'
-import { checkIndex } from '../../utils'
-import { WeatherHourlyList } from '../lists'
+import { useClickOutside } from '../../../hooks'
+import { checkIndex } from '../../../utils'
+import { WeatherHourlyList } from '../../lists'
 
 function WeatherHourly ({ hourlyWeather }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)

@@ -1,4 +1,4 @@
-import WeatherDailyList from '../lists/WeatherDailyList'
+import WeatherDailyList from '../../lists/WeatherDailyList'
 
 function WeatherDaily ({ dailyWeather }) {
   return (
