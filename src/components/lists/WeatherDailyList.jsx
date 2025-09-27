@@ -4,7 +4,12 @@ function WeatherDailyList ({ list }) {
   return (
     <ul className='grid-auto-fit' role='list'>
       {list.map(item => {
-        return <WeatherDailyListItem item={item}></WeatherDailyListItem>
+        return (
+          <WeatherDailyListItem
+            item={item}
+            key={item.id}
+          ></WeatherDailyListItem>
+        )
       })}
     </ul>
   )

@@ -2,7 +2,7 @@ import { WeatherIcon } from '../ui'
 
 function WeatherHourlyListItem ({ item }) {
   return (
-    <li key={item.id} className='weather-tile'>
+    <li className='weather-tile'>
       <WeatherIcon weatherCode={item.weatherCode}></WeatherIcon>
       <dl>
         <dt className='sr-only'>Time:</dt>

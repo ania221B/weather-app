@@ -1,9 +1,9 @@
 import { WeatherIcon } from '../ui'
 
 function WeatherDailyListItem ({ item }) {
-  const { id, day, temperature, feelsLike, weatherCode } = item
+  const { day, temperature, feelsLike, weatherCode } = item
   return (
-    <li key={id}>
+    <li>
       <article className='weather-tile'>
         <h3 className='weather-tile__category'>
           <span className='sr-only'>Day:</span>
