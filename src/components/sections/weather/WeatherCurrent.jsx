@@ -1,5 +1,5 @@
-import currentWeatherSmall from '../../assets/images/bg-today-small.svg'
-import currentWeatherLarge from '../../assets/images/bg-today-large.svg'
+import currentWeatherSmall from '../../../assets/images/bg-today-small.svg'
+import currentWeatherLarge from '../../../assets/images/bg-today-large.svg'
 import { getDateTimeString, getFormattedDate } from '../../../utils'
 import WeatherIcon from '../../ui/WeatherIcon'
 import { useSelector } from 'react-redux'
