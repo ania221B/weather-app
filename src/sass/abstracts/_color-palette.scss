@@ -47,7 +47,7 @@ $semantic-colors: (
   select-dropdown-category: map.get($colors, neutral, 300),
   select-dropdown-selected: map.get($colors, neutral, 700),
   btn-bg-hover: map.get($colors, neutral, 700),
-  btn-bg-hover-secondary: map.get($colors, neutral, 700),
+  btn-bg-hover-secondary: rgba(map.get($colors, neutral, 800), 0.9),
   btn-outline: map.get($colors, neutral, 000),
   loading-bg: hsl(242, 27%, 20%),
   btn-error-bg: hsl(242, 27%, 20%),
