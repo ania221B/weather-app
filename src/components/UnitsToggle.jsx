@@ -1,12 +1,10 @@
 import { useRef, useState } from 'react'
-import { IconCheckmark, IconUnits } from '../icons'
+import { IconUnits } from '../icons'
 import { useClickOutside } from '../hooks'
 import { useDispatch, useSelector } from 'react-redux'
-import {
-  checkIsMenuMetric,
-  toggleAllUnits,
-  toggleUnit
-} from '../features/units/unitsSlice'
+import { checkIsMenuMetric, toggleAllUnits } from '../features/units/unitsSlice'
+import UnitOption from './UnitOption'
+import UnitCategory from './UnitCategory'
 
 function UnitsToggle () {
   const dispatch = useDispatch()
@@ -91,122 +89,54 @@ function UnitsToggle () {
               Switch to {`${isMetric ? 'Imperial' : 'Metric'}`}
             </button>
           </li>
-          <li>
-            <h2 className='custom-select__category'>Temperature</h2>
-            <button
-              type='button'
-              role='menuitem'
-              className='btn btn-toggle custom-select__toggle'
-              onClick={() =>
-                dispatch(
-                  toggleUnit({ category: 'temperature', value: 'celsius' })
-                )
-              }
-            >
-              <span>Celsius (°C)</span>
-              <span>
-                {units.temperature === 'celsius' ? (
-                  <IconCheckmark></IconCheckmark>
-                ) : (
-                  ''
-                )}
-              </span>
-            </button>
-            <button
-              type='button'
-              role='menuitem'
-              className='btn btn-toggle custom-select__toggle'
-              onClick={() =>
-                dispatch(
-                  toggleUnit({ category: 'temperature', value: 'fahrenheit' })
-                )
-              }
-            >
-              <span>Fahrenheit (°F)</span>
-              <span>
-                {units.temperature === 'fahrenheit' ? (
-                  <IconCheckmark></IconCheckmark>
-                ) : (
-                  ''
-                )}
-              </span>
-            </button>
-          </li>
-          <li>
-            <h2 className='custom-select__category'>Wind Speed</h2>
-            <button
-              type='button'
-              role='menuitem'
-              className='btn btn-toggle custom-select__toggle'
-              onClick={() =>
-                dispatch(toggleUnit({ category: 'windSpeed', value: 'kmh' }))
-              }
-            >
-              <span>km/h</span>
-              <span>
-                {units.windSpeed === 'kmh' ? (
-                  <IconCheckmark></IconCheckmark>
-                ) : (
-                  ''
-                )}
-              </span>
-            </button>
-            <button
-              type='button'
-              role='menuitem'
-              className='btn btn-toggle custom-select__toggle'
-              onClick={() =>
-                dispatch(toggleUnit({ category: 'windSpeed', value: 'mph' }))
-              }
-            >
-              <span>mph</span>
-              <span>
-                {units.windSpeed === 'mph' ? (
-                  <IconCheckmark></IconCheckmark>
-                ) : (
-                  ''
-                )}
-              </span>
-            </button>
-          </li>
-          <li>
-            <h2 className='custom-select__category'>Precipitation</h2>
-            <button
-              type='button'
-              role='menuitem'
-              className='btn btn-toggle custom-select__toggle'
-              onClick={() =>
-                dispatch(toggleUnit({ category: 'precipitation', value: 'mm' }))
-              }
-            >
-              <span>Millimeters (mm)</span>
-              <span>
-                {units.precipitation === 'mm' ? (
-                  <IconCheckmark></IconCheckmark>
-                ) : (
-                  ''
-                )}
-              </span>
-            </button>
-            <button
-              type='button'
-              className='btn btn-toggle custom-select__toggle'
-              onClick={() =>
-                dispatch(
-                  toggleUnit({ category: 'precipitation', value: 'inch' })
-                )
-              }
-            >
-              <span>Inches (in)</span>
-              <span>
-                {units.precipitation === 'inch' ? (
-                  <IconCheckmark></IconCheckmark>
-                ) : (
-                  ''
-                )}
-              </span>
-            </button>
-          </li>
+
+          <UnitCategory title='Temperature'>
+            <UnitOption
+              category='temperature'
+              value='celsius'
+              label='Celsius (°C)'
+              isSelected={units.temperature === 'celsius'}
+            ></UnitOption>
+
+            <UnitOption
+              category='temperature'
+              value='fahrenheit'
+              label='Fahrenheit (°F)'
+              isSelected={units.temperature === 'fahrenheit'}
+            ></UnitOption>
+          </UnitCategory>
+
+          <UnitCategory title='Wind Speed'>
+            <UnitOption
+              category='windSpeed'
+              value='kmh'
+              label='km/h'
+              isSelected={units.windSpeed === 'kmh'}
+            ></UnitOption>
+
+            <UnitOption
+              category='windSpeed'
+              value='mph'
+              label='mph'
+              isSelected={units.windSpeed === 'mph'}
+            ></UnitOption>
+          </UnitCategory>
+
+          <UnitCategory title='Precipitation'>
+            <UnitOption
+              category='precipitation'
+              value='mm'
+              label='Millimeters (mm)'
+              isSelected={units.precipitation === 'mm'}
+            ></UnitOption>
+
+            <UnitOption
+              category='precipitation'
+              value='inch'
+              label='Inches (in)'
+              isSelected={units.precipitation === 'inch'}
+            ></UnitOption>
+          </UnitCategory>
         </ul>
       )}
     </div>
