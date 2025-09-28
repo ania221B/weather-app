@@ -6,7 +6,6 @@ function SuggestionsListItem ({
 }) {
   return (
     <li
-      key={suggestion.id}
       id={`option-${index}`}
       role='option'
       aria-selected={selectedOptionIndex === index || undefined}

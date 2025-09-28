@@ -51,6 +51,7 @@ function SuggestionsList ({
         {suggestions.map((location, index) => {
           return (
             <SuggestionsListItem
+              key={location.id}
               suggestion={location}
               index={index}
               selectedOptionIndex={selectedOptionIndex}
