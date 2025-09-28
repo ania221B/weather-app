@@ -1,6 +1,6 @@
 export { default as WeatherDailyList } from './WeatherDailyList'
 export { default as WeatherDailyListItem } from './WeatherDailyListItem'
 export { default as WeatherHourlyList } from './WeatherHourlyList'
-export { default as WeatherHourlyListItem } from './WeatherDailyListItem'
+export { default as WeatherHourlyListItem } from './WeatherHourlyListItem'
 export { default as SuggestionsList } from './SuggestionsList'
 export { default as SuggestionsListItem } from './SuggestionsListItem'
