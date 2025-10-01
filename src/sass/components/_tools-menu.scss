@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+.tools-menu {
+  list-style: none;
+  position: sticky;
+  inset: auto 0 0 0;
+  inline-size: fit-content;
+  margin-block: 0;
+  margin-inline: auto;
+  padding-block: size(200);
+  padding-inline: size(150);
+  background-color: clr(tools-menu-bg);
+  border: 1px solid clr(tools-menu-br);
+  border-radius: border-radius(100);
+  z-index: 15;
+
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0 size(400);
+  place-content: center;
+}

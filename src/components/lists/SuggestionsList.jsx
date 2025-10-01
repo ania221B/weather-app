@@ -1,4 +1,4 @@
-import { IconLoading } from '../../icons'
+import { IconLoading } from '../icons'
 import SuggestionsListItem from './SuggestionsListItem'
 
 function SuggestionsList ({

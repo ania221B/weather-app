@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { IconDropdown } from '../../../icons'
+import { IconDropdown } from '../../icons'
 import { nanoid } from 'nanoid'
 import { useClickOutside } from '../../../hooks'
 import { checkIndex } from '../../../utils'

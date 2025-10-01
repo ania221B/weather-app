@@ -135,6 +135,24 @@
     background-color: clr(btn-error-bg);
     color: clr(btn-error-text);
   }
+
+  &--favourite {
+    border-radius: border-radius(100);
+    svg {
+      inline-size: 2.25rem;
+      block-size: 2.25rem;
+    }
+    &.filled {
+      svg {
+        fill: currentColor;
+      }
+    }
+    &:not(.filled):hover {
+      svg {
+        stroke: clr(accent-text);
+      }
+    }
+  }
 }
 
 @keyframes expand {
@@ -147,14 +165,14 @@
   }
   100% {
     opacity: 1;
-    transform: scale(40);
+    transform: scale(45);
   }
 }
 
 @keyframes shrink {
   0% {
     opacity: 1;
-    transform: scale(35);
+    transform: scale(45);
   }
   80% {
     transform: scale(0);

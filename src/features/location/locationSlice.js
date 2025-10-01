@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   query: '',
   selected: {
+    id: 1850147,
     name: 'Tokyo',
     country: 'Japan',
     coordinates: {
@@ -20,8 +21,9 @@ const locationSlice = createSlice({
       state.query = action.payload
     },
     setLocation: (state, action) => {
-      const { name, country, coordinates } = action.payload
+      const { id, name, country, coordinates } = action.payload
       state.selected = {
+        id,
         name,
         country,
         coordinates
@@ -30,6 +32,7 @@ const locationSlice = createSlice({
   }
 })
 
-export const { setQuery, setLocation } = locationSlice.actions
+export const { setQuery, setLocation, setAsFavourited, unsetAsFavourited } =
+  locationSlice.actions
 
 export default locationSlice.reducer

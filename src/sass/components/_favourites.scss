@@ -1,0 +1,94 @@
+@use '../abstracts/' as *;
+
+.favourites {
+  margin-block-start: size(400);
+  display: grid;
+  grid-auto-flow: row;
+  gap: size(400);
+
+  h2 {
+    font-size: fs(600);
+    font-style: italic;
+  }
+
+  &--empty {
+    max-inline-size: 35rem;
+    margin-inline: auto;
+  }
+  &__list {
+    padding: 0;
+    margin: 0;
+    margin-block-start: size(200);
+
+    display: grid;
+    grid-auto-flow: row;
+    gap: size(300);
+
+    &__item {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-columns: 1fr repeat(2, auto);
+      gap: size(200);
+
+      padding-inline: size(100);
+      padding-block: size(125);
+
+      position: relative;
+      & + &::before {
+        content: '';
+        position: absolute;
+        top: calc(size(150) * -1);
+        width: 100%;
+        height: 1px;
+        background-color: clr(select-dropdown-br);
+      }
+    }
+
+    dl {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: max-content;
+      gap: 0 size(200);
+    }
+    dt {
+      font-size: fs(300);
+      font-weight: $fw-300;
+    }
+    dt:first-of-type {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    dd:first-of-type {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    dt:nth-of-type(2),
+    dd:nth-of-type(2) {
+      grid-row: 2;
+    }
+  }
+  .btn {
+    border-radius: border-radius(8);
+  }
+
+  .btn:not(.btn--clear) {
+    padding: 0;
+    aspect-ratio: 1;
+  }
+
+  .btn--clear {
+    --button-hover-bg: #{clr(clear-btn-bg-hover)};
+    --button-hover-bg-secondary: #{clr(clear-btn-bg-hover-secondary)};
+    border: 1px solid clr(clear-btn-br);
+    padding-block: size(150);
+    padding-inline: size(250);
+    color: clr(accent-text);
+
+    display: flex;
+    gap: size(200);
+
+    &:hover {
+      color: clr(secondary-text);
+    }
+  }
+}

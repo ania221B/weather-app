@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { IconCheckmark } from '../../icons'
+import { IconCheckmark } from '../icons'
 import { toggleUnit } from '../../features/units/unitsSlice'
 
 function UnitOption ({ category, value, label, isSelected }) {
@@ -12,11 +12,7 @@ function UnitOption ({ category, value, label, isSelected }) {
       onClick={() => dispatch(toggleUnit({ category, value }))}
     >
       <span>{label}</span>
-      {isSelected && (
-        <span>
-          <IconCheckmark></IconCheckmark>
-        </span>
-      )}
+      {isSelected && <IconCheckmark></IconCheckmark>}
     </button>
   )
 }

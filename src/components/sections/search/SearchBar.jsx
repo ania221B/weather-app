@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { IconSearch } from '../../../icons'
+import { IconSearch } from '../../icons'
 import { useClickOutside } from '../../../hooks'
 import { checkIndex } from '../../../utils'
 import { useDispatch, useSelector } from 'react-redux'
@@ -54,6 +54,7 @@ function SearchBar ({ debouncedQuery, locationList, isPending }) {
 
       dispatch(
         setLocation({
+          id: chosen.id,
           name: chosen.name,
           country: chosen.country,
           coordinates: {
@@ -76,6 +77,7 @@ function SearchBar ({ debouncedQuery, locationList, isPending }) {
     dispatch(setResultsError(''))
     dispatch(
       setLocation({
+        id: location.id,
         name: location.name,
         country: location.country,
         coordinates: {
@@ -124,9 +126,8 @@ function SearchBar ({ debouncedQuery, locationList, isPending }) {
       <form className='search-form' onSubmit={handleSubmit}>
         <div className='search-form__control-wrapper'>
           <label htmlFor='search-input'>
-            <span>
-              <IconSearch></IconSearch>
-            </span>
+            <IconSearch></IconSearch>
+
             <span className='sr-only'>Search a place</span>
           </label>
 

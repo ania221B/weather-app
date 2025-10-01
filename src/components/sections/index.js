@@ -1,6 +1,7 @@
 export { default as Loading } from './loading/Loading'
 export { default as Search } from './search/Search'
 export { default as SearchBar } from './search/SearchBar'
+export { default as ToolsMenu } from './weather/ToolsMenu'
 export { default as WeatherCurrent } from './weather/WeatherCurrent'
 export { default as WeatherDaily } from './weather/WeatherDaily'
 export { default as WeatherForecast } from './weather/WeatherForecast'

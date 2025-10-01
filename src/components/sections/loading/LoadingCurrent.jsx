@@ -1,4 +1,4 @@
-import { IconLoading } from '../../../icons'
+import { IconLoading } from '../../icons'
 import noise from '../../../assets/images/nnnoise.svg'
 
 function LoadingCurrent () {

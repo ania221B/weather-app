@@ -3,12 +3,17 @@ import { useDebounce, useLocationSearch } from './hooks'
 import { useSelector } from 'react-redux'
 import { Header } from './components/layout'
 import { ApiError } from './components/common'
-import { Search, WeatherForecast } from './components/sections'
+import { Search, ToolsMenu, WeatherForecast } from './components/sections'
+import { useEffect, useRef } from 'react'
+import Modal from './components/common/Modal'
+import FavouriteList from './components/favourites/FavouriteList'
 
 function App () {
   const units = useSelector(store => store.units)
   const { coordinates } = useSelector(store => store.location.selected)
   const { query } = useSelector(store => store.location)
+  const { isModalOpen } = useSelector(store => store.favourites)
+  const { favouriteList } = useSelector(store => store.favourites)
 
   const debouncedQuery = useDebounce(query, 500)
   const {
@@ -24,6 +29,18 @@ function App () {
     error: weatherError,
     refetch: refetchWeather
   } = useWeatherSearch(coordinates, units)
+
+  const modalRef = useRef(null)
+
+  function toggleModal () {
+    if (!modalRef.current) return
+
+    isModalOpen ? modalRef.current.showModal() : modalRef.current.close()
+  }
+
+  useEffect(() => {
+    toggleModal()
+  }, [isModalOpen])
 
   if (locationError) {
     return (
@@ -73,6 +90,14 @@ function App () {
             ></WeatherForecast>
           </div>
         </section>
+
+        <ToolsMenu></ToolsMenu>
+
+        {isModalOpen && (
+          <Modal modal={modalRef}>
+            <FavouriteList favourites={favouriteList}></FavouriteList>
+          </Modal>
+        )}
       </main>
     </>
   )

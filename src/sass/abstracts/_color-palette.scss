@@ -23,6 +23,8 @@ $colors: (
 $semantic-colors: (
   main-bg: map.get($colors, neutral, 900),
   primary-text: map.get($colors, neutral, 000),
+  secondary-text: map.get($colors, neutral, 900),
+  accent-text: map.get($colors, secondary, 500),
   search-bar-bg: map.get($colors, neutral, 800),
   search-bar-bg-hover: map.get($colors, neutral, 700),
   search-bar-primary-text: map.get($colors, neutral, 000),
@@ -55,4 +57,11 @@ $semantic-colors: (
   scrollbar-thumb-clr: map.get($colors, neutral, 600),
   scrollbar-thumb-clr-hover: map.get($colors, neutral, 300),
   scrollbar-track-clr: transparent,
+  modal-bg: map.get($colors, neutral, 800),
+  modal-br: map.get($colors, neutral, 600),
+  clear-btn-br: map.get($colors, secondary, 500),
+  clear-btn-bg-hover: map.get($colors, secondary, 500),
+  clear-btn-bg-hover-secondary: rgba(map.get($colors, secondary, 500), 0.5),
+  tools-menu-bg: map.get($colors, neutral, 800),
+  tools-menu-br: map.get($colors, neutral, 600),
 );

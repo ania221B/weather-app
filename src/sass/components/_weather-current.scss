@@ -2,6 +2,7 @@
 
 .weather-current {
   --flow-spacer: #{size(250)};
+  position: relative;
 
   &__highlighted-content {
     display: grid;
@@ -18,7 +19,7 @@
       --flow-spacer: #{size(400)};
     }
 
-    & > *:first-child {
+    & > header {
       --flow-spacer: #{size(150)};
       text-align: center;
       @include mq(medium) {
@@ -26,7 +27,7 @@
       }
     }
 
-    & > *:not(:first-child) {
+    & > *:not(header, .btn) {
       display: grid;
       grid-auto-flow: row;
       align-items: center;

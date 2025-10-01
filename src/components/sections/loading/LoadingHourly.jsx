@@ -1,4 +1,4 @@
-import { IconDropdown } from '../../../icons'
+import { IconDropdown } from '../../icons'
 
 function LoadingHourly () {
   return (

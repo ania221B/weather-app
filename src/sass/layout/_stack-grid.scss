@@ -31,3 +31,8 @@
   grid-column: 2 / -2;
   grid-row: 2;
 }
+
+.btn--favourite {
+  position: absolute;
+  inset: var(--padding-inline) var(--padding-inline) auto auto;
+}

@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { IconUnits } from '../../icons'
+import { IconUnits } from '../icons'
 import { useClickOutside } from '../../hooks'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -69,9 +69,8 @@ function UnitsToggle () {
         onClick={toggleDropdown}
         onKeyDown={handleTriggerKeyDown}
       >
-        <span className='custom-select__icon'>
-          <IconUnits></IconUnits>
-        </span>
+        <IconUnits className='custom-select__icon'></IconUnits>
+
         <span className='custom-select__label'>Units</span>
       </button>
 

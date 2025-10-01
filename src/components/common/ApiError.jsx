@@ -1,4 +1,4 @@
-import { IconError, IconRetry } from '../../icons'
+import { IconError, IconRetry } from '../icons'
 
 function ApiError ({ onRetry }) {
   return (
@@ -12,9 +12,7 @@ function ApiError ({ onRetry }) {
         moments.
       </p>
       <button type='button' className='btn btn--error' onClick={onRetry}>
-        <span>
-          <IconRetry></IconRetry>
-        </span>
+        <IconRetry></IconRetry>
         <span>Retry</span>
       </button>
     </header>
