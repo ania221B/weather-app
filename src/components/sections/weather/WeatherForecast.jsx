@@ -25,8 +25,8 @@ function WeatherForecast ({ weather, coordinates, isPending }) {
     return {
       id: nanoid(),
       day: getWeekday(day),
-      temperature: `${weather.daily.temperature[index]}°`,
-      feelsLike: `${weather.daily.feelsLike[index]}°`,
+      temperatureMax: `${weather.daily.temperatureMax[index]}°`,
+      temperatureMin: `${weather.daily.temperatureMin[index]}°`,
       weatherCode: weather.daily.weatherCode[index]
     }
   })

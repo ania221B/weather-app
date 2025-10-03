@@ -64,16 +64,12 @@ function normalizeWeather (data) {
         typeof dailyUnits?.temperature_2m_mean === 'string'
           ? dailyUnits.temperature_2m_mean
           : '',
-      feelsLikeUnit:
-        typeof dailyUnits?.apparent_temperature_mean === 'string'
-          ? dailyUnits.apparent_temperature_mean
-          : '',
       days: Array.isArray(daily?.time) ? daily.time : [],
-      temperature: Array.isArray(daily?.temperature_2m_mean)
-        ? daily.temperature_2m_mean
+      temperatureMax: Array.isArray(daily?.temperature_2m_max)
+        ? daily.temperature_2m_max
         : [],
-      feelsLike: Array.isArray(daily?.apparent_temperature_mean)
-        ? daily.apparent_temperature_mean
+      temperatureMin: Array.isArray(daily?.temperature_2m_min)
+        ? daily.temperature_2m_min
         : [],
       weatherCode: Array.isArray(daily?.weather_code)
         ? daily.weather_code

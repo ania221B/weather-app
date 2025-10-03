@@ -1,7 +1,7 @@
 import { WeatherIcon } from '../ui'
 
 function WeatherDailyListItem ({ item }) {
-  const { day, temperature, feelsLike, weatherCode } = item
+  const { day, temperatureMax, temperatureMin, weatherCode } = item
   return (
     <li>
       <article className='weather-tile'>
@@ -13,10 +13,10 @@ function WeatherDailyListItem ({ item }) {
         <WeatherIcon weatherCode={weatherCode}></WeatherIcon>
         <dl>
           <dt className='sr-only'>Temperature:</dt>
-          <dd className='weather-tile__value'>{temperature}</dd>
+          <dd className='weather-tile__value'>{temperatureMax}</dd>
 
           <dt className='sr-only'>Feels Like:</dt>
-          <dd className='weather-tile__value'>{feelsLike}</dd>
+          <dd className='weather-tile__value'>{temperatureMin}</dd>
         </dl>
       </article>
     </li>
