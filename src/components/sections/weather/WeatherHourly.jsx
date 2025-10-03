@@ -69,6 +69,7 @@ function WeatherHourly ({ hourlyWeather }) {
             type='button'
             role='combobox'
             aria-expanded={isDropdownOpen}
+            aria-haspopup='listbox'
             aria-controls='weekdays-list'
             aria-activedescendant={`option-${highlightedIndex}` || undefined}
             className='btn custom-select__button'

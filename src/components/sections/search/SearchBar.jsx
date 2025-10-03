@@ -137,6 +137,7 @@ function SearchBar ({ debouncedQuery, locationList, isPending }) {
             role='combobox'
             aria-expanded={isExpanded}
             aria-controls='suggestion-list'
+            aria-haspopup='listbox'
             aria-autocomplete='list'
             aria-activedescendant={`option-${selectedOptionIndex}` || undefined}
             name='search'
