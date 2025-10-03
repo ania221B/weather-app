@@ -78,13 +78,11 @@ function UnitsToggle () {
         <ul
           id='units-menu'
           className='custom-select__dropdown custom-select__dropdown--units'
-          role='menu'
           onKeyDown={handleMenuKeyDown}
         >
           <li>
             <button
               type='button'
-              role='menuitem'
               className='btn btn-toggle custom-select__toggle'
               onClick={() => dispatch(toggleAllUnits())}
             >
@@ -97,14 +95,12 @@ function UnitsToggle () {
               category='temperature'
               value='celsius'
               label='Celsius (°C)'
-              isSelected={units.temperature === 'celsius'}
             ></UnitOption>
 
             <UnitOption
               category='temperature'
               value='fahrenheit'
               label='Fahrenheit (°F)'
-              isSelected={units.temperature === 'fahrenheit'}
             ></UnitOption>
           </UnitCategory>
 
@@ -113,14 +109,12 @@ function UnitsToggle () {
               category='windSpeed'
               value='kmh'
               label='km/h'
-              isSelected={units.windSpeed === 'kmh'}
             ></UnitOption>
 
             <UnitOption
               category='windSpeed'
               value='mph'
               label='mph'
-              isSelected={units.windSpeed === 'mph'}
             ></UnitOption>
           </UnitCategory>
 
@@ -129,14 +123,12 @@ function UnitsToggle () {
               category='precipitation'
               value='mm'
               label='Millimeters (mm)'
-              isSelected={units.precipitation === 'mm'}
             ></UnitOption>
 
             <UnitOption
               category='precipitation'
               value='inch'
               label='Inches (in)'
-              isSelected={units.precipitation === 'inch'}
             ></UnitOption>
           </UnitCategory>
         </ul>
