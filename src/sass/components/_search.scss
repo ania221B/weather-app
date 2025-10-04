@@ -1,7 +1,5 @@
 @use '../abstracts/' as *;
 
-@use '../abstracts/' as *;
-
 .search {
   h1 {
     margin-block: var(--margin-block);
@@ -21,9 +19,7 @@
       inset: 100% 0 0 auto;
       z-index: 100;
       width: 100%;
-      // min-height: 2.4375rem;
       height: max-content;
-      // max-height: 11.5rem;
       margin: size(100) 0 0 0;
       isolation: isolate;
 
@@ -62,7 +58,6 @@
   &-form {
     display: grid;
     grid-auto-flow: row;
-    grid-auto-rows: 1fr;
     gap: size(150);
     align-items: center;
     padding: 0;
@@ -78,22 +73,16 @@
   grid-template-columns: max-content 1fr;
   align-items: center;
 
-  gap: clamp(size(100), calc(2.13vw + 8.02px), size(200));
-
-  line-height: 1;
+  gap: 0 clamp(size(100), calc(2.13vw + 8.02px), size(200));
 
   border-radius: border-radius(12);
   padding-block: size(200);
-  padding-inline: size(150);
+  padding-inline: size(300);
   background-color: clr(search-bar-bg);
 
   position: relative;
   isolation: isolate;
   z-index: 10;
-
-  @include mq(small) {
-    padding-block: size(200);
-  }
 
   &:focus-within {
     outline: none;
@@ -121,6 +110,8 @@
   input {
     padding: 0;
     margin: 0;
+    border: none;
+    line-height: 1;
   }
 
   label {

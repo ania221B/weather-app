@@ -3,8 +3,24 @@
 .primary-header {
   padding-block-start: var(--padding-block-start);
   @include fluid-clamp($padding-header, false, 'padding-block-start');
-  & > * {
+  &__wrapper {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: size(400);
+    @include mq(small, max-width) {
+      max-height: 33px;
+    }
+
+    & > * {
+      flex-shrink: 1;
+    }
+  }
+
+  .logo {
+    justify-self: start;
+    @include mq(small, max-width) {
+      max-height: 100%;
+    }
   }
 }

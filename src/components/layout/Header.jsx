@@ -4,7 +4,7 @@ import { Logo } from '../ui'
 function Header ({ units, setUnits, metricUnits, imperialUnits, isMetric }) {
   return (
     <header className='primary-header'>
-      <div className='container' data-container='large'>
+      <div className='primary-header__wrapper container' data-container='large'>
         <Logo></Logo>
         <UnitsToggle
           units={units}

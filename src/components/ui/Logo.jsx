@@ -6,6 +6,7 @@ function Logo () {
       height='40'
       fill='none'
       viewBox='0 0 197 40'
+      className='logo'
     >
       <g clipPath='url(#a)'>
         <path

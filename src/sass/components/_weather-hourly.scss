@@ -2,7 +2,7 @@
 
 .weather-hourly {
   --flow-spacer: #{size(200)};
-  max-height: 43.3125rem;
+  height: 43.3125rem;
 
   display: grid;
   flex-direction: row;
@@ -15,6 +15,7 @@
   @include fluid-clamp($padding-weather-hourly-inline, true, 'padding-block');
   @include mq(60em, 'between', 70.0625em) {
     max-height: 59.25rem;
+    height: 100%;
   }
 
   header {

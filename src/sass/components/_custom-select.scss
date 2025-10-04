@@ -17,6 +17,13 @@
       padding-block: size(100);
       background-color: clr(weather-hourly-select-btn);
     }
+
+    .units-menu & {
+      @include mq(small, max-width) {
+        padding-inline: size(125);
+        padding-block: size(100);
+      }
+    }
   }
 
   &__selected-value,
