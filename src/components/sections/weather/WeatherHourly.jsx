@@ -73,6 +73,8 @@ function WeatherHourly ({ hourlyWeather }) {
             aria-controls='weekdays-list'
             aria-activedescendant={`option-${highlightedIndex}` || undefined}
             className='btn custom-select__button'
+            data-type='toggle'
+            data-variant='ripple'
             onClick={toggleDropdown}
             onKeyDown={handleKeyDown}
           >
@@ -102,9 +104,11 @@ function WeatherHourly ({ hourlyWeather }) {
                       setSelectedDayIndex(index)
                       setIsDropdownOpen(false)
                     }}
-                    className={`custom-select__toggle btn btn-toggle ${
+                    className={`custom-select__toggle btn ${
                       highlightedIndex === index ? ' highlighted' : ''
                     } ${selectedDayIndex === index ? 'selected' : ''}`}
+                    data-type='toggle'
+                    data-variant='ripple'
                   >
                     {day.name}
                   </li>

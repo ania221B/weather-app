@@ -32,7 +32,7 @@
   grid-row: 2;
 }
 
-.btn--favourite {
+.btn[data-type='favourite'] {
   position: absolute;
   inset: var(--padding-inline) var(--padding-inline) auto auto;
 }

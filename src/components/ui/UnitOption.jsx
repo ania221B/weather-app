@@ -10,7 +10,9 @@ function UnitOption ({ category, value, label }) {
     <button
       type='button'
       aria-pressed={isSelected}
-      className='btn btn-toggle custom-select__toggle'
+      className='btn custom-select__toggle'
+      data-type='toggle'
+      data-variant='ripple'
       onClick={() => dispatch(toggleUnit({ category, value }))}
     >
       <span>{label}</span>

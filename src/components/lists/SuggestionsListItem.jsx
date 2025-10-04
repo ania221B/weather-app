@@ -10,9 +10,11 @@ function SuggestionsListItem ({
       role='option'
       aria-selected={selectedOptionIndex === index || undefined}
       onMouseDown={() => onSelect(suggestion)}
-      className={`search-menu__suggestion-list__item btn btn-toggle ${
+      className={`search-menu__suggestion-list__item btn ${
         selectedOptionIndex === index ? 'selected' : ''
       }`}
+      data-type='toggle'
+      data-variant='ripple'
     >
       <p>
         {suggestion.name}, {suggestion.country}

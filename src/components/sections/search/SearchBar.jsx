@@ -160,7 +160,12 @@ function SearchBar ({ debouncedQuery, locationList, isPending }) {
           ></SuggestionsList>
         </div>
 
-        <button type='submit' className='btn btn--search'>
+        <button
+          type='submit'
+          className='btn'
+          data-type='search'
+          data-variant='ripple'
+        >
           Search
         </button>
       </form>

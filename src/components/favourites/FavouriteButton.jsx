@@ -13,12 +13,12 @@ function FavouriteButton ({ location }) {
   return (
     <button
       type='button'
-      className={
-        isFavourited ? 'btn btn--favourite filled' : 'btn btn--favourite'
-      }
+      className={isFavourited ? 'btn filled' : 'btn '}
       onClick={() => {
         dispatch(addTofavourites(location))
       }}
+      data-type='favourite'
+      data-variant='scale-up'
     >
       <IconFavourites></IconFavourites>
     </button>

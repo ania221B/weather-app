@@ -71,24 +71,8 @@
     border-radius: border-radius(8);
   }
 
-  .btn:not(.btn--clear) {
+  .btn:not(.btn[data-type='clear']) {
     padding: 0;
     aspect-ratio: 1;
-  }
-
-  .btn--clear {
-    --button-hover-bg: #{clr(clear-btn-bg-hover)};
-    --button-hover-bg-secondary: #{clr(clear-btn-bg-hover-secondary)};
-    border: 1px solid clr(clear-btn-br);
-    padding-block: size(150);
-    padding-inline: size(250);
-    color: clr(accent-text);
-
-    display: flex;
-    gap: size(200);
-
-    &:hover {
-      color: clr(secondary-text);
-    }
   }
 }

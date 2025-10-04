@@ -44,10 +44,10 @@ function FavouriteList ({ favourites }) {
                 onClick={() =>
                   dispatch(setLocation({ id, name, country, coordinates }))
                 }
+                data-variant='scale-up'
               >
-                <span>
-                  <IconDispalyWeather></IconDispalyWeather>
-                </span>
+                <IconDispalyWeather></IconDispalyWeather>
+
                 <span className='sr-only'>See Weather</span>
               </button>
               <button
@@ -57,10 +57,10 @@ function FavouriteList ({ favourites }) {
                   dispatch(removeFromFavourites({ id }))
                   dispatch(unsetAsFavourited())
                 }}
+                data-variant='scale-up'
               >
-                <span>
-                  <IconDelete></IconDelete>
-                </span>
+                <IconDelete></IconDelete>
+
                 <span className='sr-only'>Remove</span>
               </button>
             </li>
@@ -69,8 +69,10 @@ function FavouriteList ({ favourites }) {
       </ul>
       <button
         type='button'
-        className='btn btn--clear'
+        className='btn'
         onClick={() => dispatch(clearFavourites())}
+        data-type='clear'
+        data-variant='ripple'
       >
         <span>Clear List</span>
         <span>

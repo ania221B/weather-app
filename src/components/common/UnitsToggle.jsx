@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { IconUnits } from '../icons'
+import { IconDropdown, IconUnits } from '../icons'
 import { useClickOutside } from '../../hooks'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -61,17 +61,21 @@ function UnitsToggle () {
       <button
         type='button'
         ref={triggerRef}
-        className='btn btn-units custom-select__button'
+        className='btn custom-select__button'
         aria-label='select units used in weather forecast'
         aria-expanded={isOpen}
         aria-haspopup='true'
         aria-controls='units-menu'
+        data-type='toggle'
+        data-variant='ripple'
         onClick={toggleDropdown}
         onKeyDown={handleTriggerKeyDown}
       >
         <IconUnits className='custom-select__icon'></IconUnits>
 
         <span className='custom-select__label'>Units</span>
+
+        <IconDropdown></IconDropdown>
       </button>
 
       {isOpen && (
@@ -83,7 +87,9 @@ function UnitsToggle () {
           <li>
             <button
               type='button'
-              className='btn btn-toggle custom-select__toggle'
+              className='btn custom-select__toggle'
+              data-type='toggle'
+              data-variant='ripple'
               onClick={() => dispatch(toggleAllUnits())}
             >
               Switch to {`${isMetric ? 'Imperial' : 'Metric'}`}
