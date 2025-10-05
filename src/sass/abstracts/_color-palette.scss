@@ -59,6 +59,7 @@ $semantic-colors: (
   scrollbar-track-clr: transparent,
   modal-bg: map.get($colors, neutral, 800),
   modal-br: map.get($colors, neutral, 600),
+  modal-backdrop: rgba(map.get($colors, neutral, 800), 0.8),
   clear-btn-br: map.get($colors, secondary, 500),
   clear-btn-bg-hover: map.get($colors, secondary, 500),
   clear-btn-bg-hover-secondary: rgba(map.get($colors, secondary, 500), 0.5),
