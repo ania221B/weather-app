@@ -10,6 +10,7 @@ function FavouriteButton ({ location }) {
   const isFavourited = useSelector(store =>
     checkIsFavourited(store, location.id)
   )
+
   return (
     <button
       type='button'

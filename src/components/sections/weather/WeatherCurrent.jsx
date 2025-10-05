@@ -3,7 +3,6 @@ import currentWeatherLarge from '../../../assets/images/bg-today-large.svg'
 import { getDateTimeString, getFormattedDate } from '../../../utils'
 import WeatherIcon from '../../ui/WeatherIcon'
 import { useSelector } from 'react-redux'
-import FavouriteButton from '../../favourites/FavouriteButton'
 
 function WeatherCurrent ({ currentWeather }) {
   const { selected } = useSelector(store => store.location)
@@ -19,7 +18,6 @@ function WeatherCurrent ({ currentWeather }) {
           <img src={currentWeatherSmall} alt='' className='bg-img' />
         </picture>
         <div className='main-content weather-current__highlighted-content'>
-          <FavouriteButton location={selected}></FavouriteButton>
           <header className='flow'>
             <h2 className='fs-600 fw-bold'>{`${selected.name}, ${selected.country}`}</h2>
             <p>
