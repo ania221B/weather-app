@@ -9,9 +9,7 @@ function LoadingHourly () {
         <div className='custom-select'>
           <div className='btn custom-select__button'>
             <span className='custom-select__selected-value'>—</span>
-            <span className='custom-select__arrow'>
-              <IconDropdown></IconDropdown>
-            </span>
+            <IconDropdown></IconDropdown>
           </div>
         </div>
         {/* END OF CUSTOM SELECT */}

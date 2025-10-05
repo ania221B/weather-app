@@ -81,9 +81,8 @@ function WeatherHourly ({ hourlyWeather }) {
             <span className='custom-select__selected-value'>
               {Object.keys(hourlyWeather[selectedDayIndex])[0]}
             </span>
-            <span className='custom-select__arrow'>
-              <IconDropdown></IconDropdown>
-            </span>
+
+            <IconDropdown></IconDropdown>
           </button>
           {isDropdownOpen && (
             <ul

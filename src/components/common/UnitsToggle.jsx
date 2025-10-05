@@ -11,7 +11,6 @@ import UnitCategory from '../ui/UnitCategory'
 
 function UnitsToggle () {
   const dispatch = useDispatch()
-  const units = useSelector(store => store.units)
   const isMetric = useSelector(checkIsMenuMetric)
   const [isOpen, setIsOpen] = useState(false)
   const dropdownContainerRef = useRef(null)
@@ -23,7 +22,7 @@ function UnitsToggle () {
 
   function closeDropdown () {
     setIsOpen(false)
-    triggerRef.current?.focus
+    triggerRef.current?.focus()
   }
 
   useClickOutside(dropdownContainerRef, () => {
@@ -71,7 +70,7 @@ function UnitsToggle () {
         onClick={toggleDropdown}
         onKeyDown={handleTriggerKeyDown}
       >
-        <IconUnits className='custom-select__icon'></IconUnits>
+        <IconUnits></IconUnits>
 
         <span className='custom-select__label'>Units</span>
 

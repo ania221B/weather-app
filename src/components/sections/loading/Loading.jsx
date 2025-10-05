@@ -15,7 +15,6 @@ function Loading () {
 
       {/* HOURLY WEATHER */}
       <LoadingHourly></LoadingHourly>
-
       {/* END OF HOURLY WEATHER */}
     </article>
   )

@@ -75,9 +75,8 @@ function FavouriteList ({ favourites }) {
         data-variant='ripple'
       >
         <span>Clear List</span>
-        <span>
-          <IconDelete></IconDelete>
-        </span>
+
+        <IconDelete></IconDelete>
       </button>
     </div>
   )
