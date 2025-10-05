@@ -44,6 +44,7 @@
   .weather-hourly & {
     display: grid;
     grid-template-columns: auto 1fr;
+    gap: 0 size(050);
     align-items: center;
 
     padding-inline-start: size(150);
