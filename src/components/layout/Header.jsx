@@ -5,7 +5,7 @@ function Header ({ units, setUnits, metricUnits, imperialUnits, isMetric }) {
   return (
     <header className='primary-header'>
       <div className='primary-header__wrapper container' data-container='large'>
-        <Logo></Logo>
+        <Logo title='Weather Now'></Logo>
         <UnitsToggle
           units={units}
           setUnits={setUnits}

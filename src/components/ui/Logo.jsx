@@ -1,4 +1,4 @@
-function Logo () {
+function Logo ({ title }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -7,7 +7,13 @@ function Logo () {
       fill='none'
       viewBox='0 0 197 40'
       className='logo'
+      role={title ? 'img' : undefined}
     >
+      {title && (
+        <title className='sr-only' style={{ fontSize: '0' }}>
+          {title}
+        </title>
+      )}
       <g clipPath='url(#a)'>
         <path
           fill='#FF820A'
