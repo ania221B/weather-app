@@ -65,4 +65,6 @@ $semantic-colors: (
   clear-btn-bg-hover-secondary: rgba(map.get($colors, secondary, 500), 0.5),
   tools-menu-bg: map.get($colors, neutral, 800),
   tools-menu-br: map.get($colors, neutral, 600),
+  skip-bg: map.get($colors, primary, 500),
+  skip-br: map.get($colors, primary, 500),
 );

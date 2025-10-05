@@ -1,7 +1,7 @@
 import useWeatherSearch from './hooks/useWeatherSearch'
 import { useDebounce, useLocationSearch } from './hooks'
-import { useDispatch, useSelector } from 'react-redux'
-import { Header } from './components/layout'
+import { useSelector } from 'react-redux'
+import { Header, SkipToMain } from './components/layout'
 import { ApiError } from './components/common'
 import { Search, WeatherForecast } from './components/sections'
 
@@ -28,6 +28,7 @@ function App () {
   if (locationError) {
     return (
       <>
+        <SkipToMain></SkipToMain>
         <Header></Header>
         <main>
           <section>
@@ -43,6 +44,7 @@ function App () {
   if (weatherError) {
     return (
       <>
+        <SkipToMain></SkipToMain>
         <Header></Header>
         <main>
           <section>
@@ -57,8 +59,9 @@ function App () {
 
   return (
     <>
+      <SkipToMain></SkipToMain>
       <Header></Header>
-      <main>
+      <main id='main-content'>
         <section>
           <div className='container' data-container='large'>
             <Search

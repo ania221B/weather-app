@@ -1,0 +1,25 @@
+@use '../abstracts/' as *;
+
+.skip-to-main-content {
+  position: fixed;
+  inset: 0 auto auto 50%;
+  z-index: 100;
+  padding: 0.5em 1.5em;
+  font-size: fs(300);
+  font-weight: $fw-500;
+  letter-spacing: 0.125rem;
+  text-decoration: none;
+  border-radius: border-radius(8);
+  background-color: clr(skip-bg);
+  color: clr(primary-text);
+  transform: translate(-50%, -100%);
+  transition: transform 350ms ease-in-out;
+
+  &:focus-visible {
+    transform: translate(-50%, 0);
+    margin-block-start: size(100);
+    outline: none;
+    outline: 0.125rem solid clr(skip-br);
+    outline-offset: 0.25rem;
+  }
+}
