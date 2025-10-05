@@ -1,4 +1,4 @@
-function IconCompare () {
+function IconCompare ({ hidden = true }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -11,6 +11,7 @@ function IconCompare () {
       strokeLinecap='round'
       strokeLinejoin='round'
       className='lucide lucide-scale-icon lucide-scale'
+      aria-hidden={hidden ? true : undefined}
     >
       <path d='m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z' />
       <path d='m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z' />

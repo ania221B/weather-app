@@ -1,4 +1,4 @@
-function IconRetry () {
+function IconRetry ({ hidden = true }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,6 +6,7 @@ function IconRetry () {
       height='17'
       fill='none'
       viewBox='0 0 16 17'
+      aria-hidden={hidden ? true : undefined}
     >
       <path
         fill='#fff'

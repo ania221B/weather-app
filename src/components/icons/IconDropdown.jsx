@@ -1,4 +1,4 @@
-function IconDropdown () {
+function IconDropdown ({ hidden = true }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,6 +6,7 @@ function IconDropdown () {
       height='8'
       fill='none'
       viewBox='0 0 13 8'
+      aria-hidden={hidden ? true : undefined}
     >
       <path
         fill='#fff'

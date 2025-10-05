@@ -1,4 +1,4 @@
-function IconError () {
+function IconError ({ hidden = true }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,6 +6,7 @@ function IconError () {
       height='18'
       fill='none'
       viewBox='0 0 18 18'
+      aria-hidden={hidden ? true : undefined}
     >
       <path
         fill='#ACACB7'

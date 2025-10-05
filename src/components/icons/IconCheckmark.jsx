@@ -1,4 +1,4 @@
-function IconCheckmark () {
+function IconCheckmark ({ hidden = true }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,6 +6,7 @@ function IconCheckmark () {
       height='11'
       fill='none'
       viewBox='0 0 14 11'
+      aria-hidden={hidden ? true : undefined}
     >
       <path
         fill='#fff'

@@ -1,4 +1,4 @@
-function IconClose () {
+function IconClose ({ hidden = true }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -11,6 +11,7 @@ function IconClose () {
       strokeLinecap='round'
       strokeLinejoin='round'
       className='lucide lucide-circle-x-icon lucide-circle-x'
+      aria-hidden={hidden ? true : undefined}
     >
       <circle cx='12' cy='12' r='10' />
       <path d='m15 9-6 6' />

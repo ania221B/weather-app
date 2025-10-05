@@ -1,4 +1,4 @@
-function IconUnits () {
+function IconUnits ({ hidden = true }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -6,6 +6,7 @@ function IconUnits () {
       height='16'
       fill='none'
       viewBox='0 0 16 16'
+      aria-hidden={hidden ? true : undefined}
     >
       <path
         fill='#fff'
