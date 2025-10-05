@@ -5,10 +5,12 @@
   block-size: 100%;
   max-inline-size: var(--icon-size, 2.5rem);
   max-block-size: var(--icon-size, 2.5rem);
+  display: grid;
 
   img {
     inline-size: inherit;
     block-size: inherit;
+    max-block-size: 100%;
     aspect-ratio: 1;
   }
 
