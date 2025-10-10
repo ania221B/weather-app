@@ -1,5 +1,6 @@
 export { default as IconCheckmark } from './IconCheckmark'
 export { default as IconClose } from './IconClose'
+export { default as IconCompare } from './IconCompare'
 export { default as IconDelete } from './IconDelete'
 export { default as IconDropdown } from './IconDropdown'
 export { default as IconError } from './IconError'
