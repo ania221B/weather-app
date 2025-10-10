@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  favouriteList: [],
-  isModalOpen: false,
-  modalState: 'closed'
+  favouriteList: []
 }
 
 const favouritesSlice = createSlice({
@@ -26,29 +24,12 @@ const favouritesSlice = createSlice({
     },
     clearFavourites: state => {
       state.favouriteList = []
-    },
-    showFavourites: state => {
-      state.isModalOpen = true
-      state.modalState = 'opened'
-    },
-    closeFavourites: state => {
-      state.isModalOpen = false
-      state.modalState = 'is-closing'
-    },
-    disableFavourites: state => {
-      state.modalState = 'closed'
     }
   }
 })
 
-export const {
-  addTofavourites,
-  removeFromFavourites,
-  clearFavourites,
-  showFavourites,
-  closeFavourites,
-  disableFavourites
-} = favouritesSlice.actions
+export const { addTofavourites, removeFromFavourites, clearFavourites } =
+  favouritesSlice.actions
 
 export function checkIsFavourited (state, locationId) {
   return state.favourites.favouriteList.some(

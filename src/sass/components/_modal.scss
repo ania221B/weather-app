@@ -9,14 +9,25 @@
   padding-inline: size(400);
   color: clr(primary-text);
 
-  display: grid;
-  grid-auto-flow: row;
+  &__content {
+    display: grid;
+    grid-auto-flow: row;
+
+    & > .btn {
+      justify-self: end;
+      padding: 0;
+    }
+  }
 
   &::backdrop {
     background-color: clr(modal-backdrop);
     @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
       backdrop-filter: blur(size(075));
     }
+  }
+
+  &[data-state='closed'] {
+    display: none;
   }
 
   &[data-state='opened'] {
@@ -45,11 +56,6 @@
       animation-timing-function: ease-in-out;
       animation-fill-mode: forwards;
     }
-  }
-
-  & > .btn {
-    justify-self: end;
-    padding: 0;
   }
 }
 

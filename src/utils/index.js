@@ -1,4 +1,5 @@
 export { default as checkIndex } from './checkIndex'
+export { default as getAnimationTiming } from './getAnimationTiming'
 export { default as getFormattedDate } from './getFormattedDate'
 export { default as getDateTimeString } from './getDateTimeString'
 export { default as getTime } from './getTime'
