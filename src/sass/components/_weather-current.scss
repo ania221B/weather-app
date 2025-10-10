@@ -32,10 +32,12 @@
       grid-auto-flow: row;
       align-items: center;
       justify-items: center;
+
       gap: size(100);
       @include mq(small) {
         grid-template-columns: auto max-content;
         align-items: center;
+        justify-content: center;
         gap: 0 size(250);
       }
     }
