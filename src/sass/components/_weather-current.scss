@@ -2,7 +2,6 @@
 
 .weather-current {
   --flow-spacer: #{size(250)};
-  position: relative;
 
   &__highlighted-content {
     display: grid;
@@ -27,13 +26,13 @@
       }
     }
 
-    & > *:not(header, .btn) {
+    & > *:not(header, .btn-container) {
       display: grid;
       grid-auto-flow: row;
       align-items: center;
       justify-items: center;
-
       gap: size(100);
+
       @include mq(small) {
         grid-template-columns: auto max-content;
         align-items: center;

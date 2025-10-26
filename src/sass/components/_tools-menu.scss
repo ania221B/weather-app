@@ -2,20 +2,32 @@
 
 .tools-menu {
   list-style: none;
-  position: sticky;
+  position: fixed;
   inset: auto 0 0 0;
-  inline-size: fit-content;
+
   margin-block: 0;
   margin-inline: auto;
-  padding-block: size(200);
-  padding-inline: size(150);
+  padding-block: size(150);
+  padding-inline: size(400);
   background-color: clr(tools-menu-bg);
-  border: 1px solid clr(tools-menu-br);
-  border-radius: border-radius(100);
+  border-top: 1px solid clr(tools-menu-br);
+
   z-index: 15;
 
   display: grid;
   grid-auto-flow: column;
-  gap: 0 size(400);
+  gap: 0 size(300);
   place-content: center;
+
+  @include mq(small) {
+    inset: auto 0 0 auto;
+    inline-size: fit-content;
+    margin-inline-start: auto;
+    border-radius: border-radius(12) 0 0 border-radius(12);
+    border: 1px solid clr(tools-menu-br);
+  }
+
+  .btn {
+    aspect-ratio: 1 / 1;
+  }
 }

@@ -4,6 +4,7 @@ import locationReducer from '../features/location/locationSlice'
 import resultsErrorReducer from '../features/error/errorSlice'
 import favouritesReducer from '../features/favourites/favouritesSlice'
 import modalReducer from '../features/modal/modalSlice'
+import comparisonReducer from '../features/comparison/comparisonSlice'
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     location: locationReducer,
     resultsError: resultsErrorReducer,
     favourites: favouritesReducer,
-    modal: modalReducer
+    modal: modalReducer,
+    comparison: comparisonReducer
   }
 })

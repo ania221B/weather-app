@@ -32,7 +32,6 @@ const locationSlice = createSlice({
   }
 })
 
-export const { setQuery, setLocation, setAsFavourited, unsetAsFavourited } =
-  locationSlice.actions
+export const { setQuery, setLocation, setAsFavourited } = locationSlice.actions
 
 export default locationSlice.reducer

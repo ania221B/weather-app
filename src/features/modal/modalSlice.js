@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   modalState: 'closed',
-  modalContent: null
+  modalContent: null,
+  isListEmpty: false
 }
 
 const modalSlice = createSlice({
@@ -19,10 +20,14 @@ const modalSlice = createSlice({
     disableModal: state => {
       state.modalState = 'closed'
       state.modalContent = null
+    },
+    toggleIsListEmpty: (state, action) => {
+      state.isListEmpty = action.payload
     }
   }
 })
 
-export const { showModal, closeModal, disableModal } = modalSlice.actions
+export const { showModal, closeModal, disableModal, toggleIsListEmpty } =
+  modalSlice.actions
 
 export default modalSlice.reducer

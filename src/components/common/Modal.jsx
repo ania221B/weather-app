@@ -7,7 +7,7 @@ import { getAnimationTiming } from '../../utils'
 
 function Modal ({ modal, children }) {
   const dispatch = useDispatch()
-  const { modalState } = useSelector(store => store.modal)
+  const { modalState, isListEmpty } = useSelector(store => store.modal)
   const modalContentRef = useRef()
 
   function closeDialog () {
@@ -15,8 +15,8 @@ function Modal ({ modal, children }) {
   }
 
   function handleKeyDown (e) {
-    e.preventDefault()
     if (e.key === 'Escape') {
+      e.preventDefault()
       dispatch(closeModal())
     }
   }
@@ -37,7 +37,7 @@ function Modal ({ modal, children }) {
     }
 
     if (modalState === 'is-closing') {
-      modalElement.addEventListener('animationend', e => handleAnimationEnd(e))
+      modalElement.addEventListener('animationend', handleAnimationEnd)
 
       const { duration, delay } = getAnimationTiming(modalElement)
       const totalTime = duration + delay + 200
@@ -59,9 +59,10 @@ function Modal ({ modal, children }) {
   return (
     <dialog
       ref={modal}
-      className='modal'
+      className='modal container'
       data-state={modalState}
       onKeyDown={handleKeyDown}
+      data-container={isListEmpty ? 'x-small' : 'small'}
     >
       <div className='modal__content' ref={modalContentRef}>
         <button type='button' className='btn' onClick={closeDialog}>

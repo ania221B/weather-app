@@ -1,7 +1,6 @@
 @use '../abstracts/' as *;
 
 .modal {
-  inline-size: fit-content;
   background-color: clr(modal-bg);
   border: 1px solid clr(modal-br);
   border-radius: border-radius(12);

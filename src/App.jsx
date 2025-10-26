@@ -6,13 +6,15 @@ import { ApiError, Modal } from './components/common'
 import { Search, ToolsMenu, WeatherForecast } from './components/sections'
 import { useRef } from 'react'
 import { FavouriteList } from './components/favourites'
+import { ComparisonView } from './components/comparison'
 
 function App () {
   const units = useSelector(store => store.units)
   const { coordinates } = useSelector(store => store.location.selected)
   const { query } = useSelector(store => store.location)
-  const { favouriteList } = useSelector(store => store.favourites)
   const { modalState, modalContent } = useSelector(store => store.modal)
+  const { favouriteList } = useSelector(store => store.favourites)
+  const { comparisonList } = useSelector(store => store.comparison)
   const isModalOpen = modalState !== 'closed'
 
   const debouncedQuery = useDebounce(query, 500)
@@ -91,7 +93,9 @@ function App () {
           {modalContent === 'favourites' && (
             <FavouriteList favourites={favouriteList}></FavouriteList>
           )}
-          {modalContent === 'comparison' && <p>Comparison view</p>}
+          {modalContent === 'comparison' && (
+            <ComparisonView comparisonList={comparisonList}></ComparisonView>
+          )}
         </Modal>
       )}
     </>

@@ -7,6 +7,9 @@
   margin-inline: auto;
 }
 
+.container[data-container='x-small'] {
+  --max-width: #{$container-max-width-x-small};
+}
 .container[data-container='small'] {
   --max-width: #{$container-max-width-small};
 }

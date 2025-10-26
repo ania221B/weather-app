@@ -4,6 +4,7 @@ import { getDateTimeString, getFormattedDate } from '../../../utils'
 import WeatherIcon from '../../ui/WeatherIcon'
 import { useSelector } from 'react-redux'
 import { FavouriteButton } from '../../favourites'
+import { CompareButton } from '../../comparison'
 
 function WeatherCurrent ({ currentWeather }) {
   const { selected } = useSelector(store => store.location)
@@ -19,7 +20,12 @@ function WeatherCurrent ({ currentWeather }) {
           <img src={currentWeatherSmall} alt='' className='bg-img' />
         </picture>
         <div className='main-content weather-current__highlighted-content'>
-          <FavouriteButton location={selected}></FavouriteButton>
+          <div className='weather-current__tool-buttons btn-container'>
+            <FavouriteButton location={selected}></FavouriteButton>
+            <CompareButton
+              data={{ location: selected, weather: currentWeather }}
+            ></CompareButton>
+          </div>
           <header className='flow'>
             <h2 className='fs-600 fw-bold'>{`${selected.name}, ${selected.country}`}</h2>
             <p>

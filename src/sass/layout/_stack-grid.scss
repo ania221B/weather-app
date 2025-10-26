@@ -3,6 +3,8 @@
 .stack-grid {
   --max-width: #{$bg-max-width};
   --padding-inline: 1.5rem;
+  position: relative;
+
   @include fluid-clamp($bg-padding, true, 'padding-block');
   display: grid;
   grid-template-columns:
@@ -32,7 +34,30 @@
   grid-row: 2;
 }
 
-.btn[data-type='favourite'] {
+.btn-container {
   position: absolute;
   inset: var(--padding-inline) var(--padding-inline) auto auto;
+
+  transform: translateY(0);
+
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: center;
+  gap: size(100);
+
+  @include mq(small, max-width) {
+    grid-auto-flow: row;
+    inset: 50% auto auto calc(var(--padding-inline) / 2);
+    transform: translateY(-50%);
+  }
+  @include mq(small, between, 30em) {
+    grid-auto-flow: row;
+    inset: 35% auto auto calc(var(--padding-inline) / 2);
+    transform: translateY(-35%);
+  }
+
+  & > * {
+    max-inline-size: 2.5rem;
+  }
 }

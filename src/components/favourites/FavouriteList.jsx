@@ -4,14 +4,21 @@ import {
   clearFavourites,
   removeFromFavourites
 } from '../../features/favourites/favouritesSlice'
-import {
-  setLocation,
-  unsetAsFavourited
-} from '../../features/location/locationSlice'
+import { setLocation } from '../../features/location/locationSlice'
 import IconDispalyWeather from '../icons/IconDispalyWeather'
+import { toggleIsListEmpty } from '../../features/modal/modalSlice'
 
 function FavouriteList ({ favourites }) {
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (favourites.length === 0) {
+      dispatch(toggleIsListEmpty(true))
+    } else {
+      dispatch(toggleIsListEmpty(false))
+    }
+  }, [favourites.length])
+
   if (favourites.length === 0) {
     return (
       <div className='favourites favourites--empty'>
@@ -55,7 +62,6 @@ function FavouriteList ({ favourites }) {
                 className='btn'
                 onClick={() => {
                   dispatch(removeFromFavourites({ id }))
-                  dispatch(unsetAsFavourited())
                 }}
                 data-variant='scale-up'
               >

@@ -18,9 +18,10 @@ function FavouriteButton ({ location }) {
       onClick={() => {
         dispatch(addTofavourites(location))
       }}
-      data-type='favourite'
+      data-type='icon'
       data-variant='scale-up'
     >
+      <span className='sr-only'>Add to favourites</span>
       <IconFavourites></IconFavourites>
     </button>
   )
