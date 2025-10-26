@@ -8,7 +8,8 @@ async function fetchWeather (coordinates, units) {
       current:
         'temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,precipitation,weather_code',
       hourly: 'temperature_2m,weather_code',
-      daily: 'temperature_2m_max,temperature_2m_min,weather_code',
+      daily:
+        'temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset',
       temperature_unit: units.temperature,
       wind_speed_unit: units.windSpeed,
       precipitation_unit: units.precipitation,

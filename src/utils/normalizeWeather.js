@@ -71,6 +71,8 @@ function normalizeWeather (data) {
       temperatureMin: Array.isArray(daily?.temperature_2m_min)
         ? daily.temperature_2m_min
         : [],
+      sunrise: Array.isArray(daily?.sunrise) ? daily.sunrise : [],
+      sunset: Array.isArray(daily?.sunset) ? daily.sunset : [],
       weatherCode: Array.isArray(daily?.weather_code)
         ? daily.weather_code
         : null

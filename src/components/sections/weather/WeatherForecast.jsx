@@ -27,6 +27,8 @@ function WeatherForecast ({ weather, coordinates, isPending }) {
       day: getWeekday(day),
       temperatureMax: `${weather.daily.temperatureMax[index]}°`,
       temperatureMin: `${weather.daily.temperatureMin[index]}°`,
+      sunrise: weather.daily.sunrise[index],
+      sunset: weather.daily.sunset[index],
       weatherCode: weather.daily.weatherCode[index]
     }
   })

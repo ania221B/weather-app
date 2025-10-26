@@ -18,7 +18,12 @@
     --icon-size: 7.5rem;
   }
 
-  .weather-daily & {
-    --icon-size: 3.75rem;
+  // the following is the size of icons from the original design, however after adding sunrise and sunset icons the tiles looked unbalanced, so used the same size as hourly weather icons
+  // .weather-daily & {
+  //   --icon-size: 3.75rem;
+  // }
+
+  .comparison-view & {
+    --icon-size: 5rem;
   }
 }

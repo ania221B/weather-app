@@ -6,6 +6,7 @@ $spacing: (
   100: 0.5rem,
   125: 0.625rem,
   150: 0.75rem,
+  175: 0.9rem,
   200: 1rem,
   250: 1.25rem,
   300: 1.5rem,
@@ -58,6 +59,7 @@ $container-padding-inline: (
   mid-width: 33.125,
 );
 $container-max-width: 60rem;
+$container-max-width-x-small: 35rem;
 $container-max-width-small: 50rem;
 $container-max-width-large: 76rem;
 $container-max-width-full-bleed: 100%;
