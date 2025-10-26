@@ -70,7 +70,7 @@
 
 .search-form__control-wrapper {
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: min-content max-content;
   align-items: center;
 
   gap: 0 clamp(size(100), calc(2.13vw + 8.02px), size(200));
@@ -79,6 +79,10 @@
   padding-block: size(200);
   padding-inline: size(300);
   background-color: clr(search-bar-bg);
+
+  @include mq(small, max-width) {
+    padding-inline: size(150);
+  }
 
   position: relative;
   isolation: isolate;
