@@ -1,4 +1,4 @@
-function IconSunset () {
+function IconSunset ({ hidden = true }) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -10,7 +10,8 @@ function IconSunset () {
       strokeWidth='2'
       strokeLinecap='round'
       strokeLinejoin='round'
-      class='lucide lucide-sunset-icon lucide-sunset'
+      className='lucide lucide-sunset-icon lucide-sunset'
+      aria-hidden={hidden ? true : undefined}
     >
       <path d='M12 10V2' />
       <path d='m4.93 10.93 1.41 1.41' />
