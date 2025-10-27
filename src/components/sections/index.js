@@ -1,3 +1,4 @@
+export { default as DetailsButton } from './weather/DetailsButton'
 export { default as Loading } from './loading/Loading'
 export { default as Search } from './search/Search'
 export { default as SearchBar } from './search/SearchBar'

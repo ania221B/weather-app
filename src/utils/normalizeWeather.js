@@ -37,6 +37,14 @@ function normalizeWeather (data) {
         typeof currentUnits?.precipitation === 'string'
           ? currentUnits.precipitation
           : '',
+      visibilityUnit:
+        typeof currentUnits?.visibility === 'string'
+          ? currentUnits.visibility
+          : '',
+      airPressureUnit:
+        typeof currentUnits?.pressure_msl === 'string'
+          ? currentUnits.pressure_msl
+          : '',
       time: typeof current?.time === 'string' ? current.time : '',
       temperature:
         typeof current?.temperature_2m === 'number'
@@ -57,7 +65,13 @@ function normalizeWeather (data) {
       precipitation:
         typeof current?.precipitation === 'number' ? current.precipitation : 0,
       weatherCode:
-        typeof current?.weather_code === 'number' ? current.weather_code : null
+        typeof current?.weather_code === 'number' ? current.weather_code : null,
+      visibility:
+        typeof current?.visibility === 'number' ? current.visibility : 0,
+      uvIndex: typeof current?.uv_index === 'number' ? current.uv_index : 0,
+      airPressure:
+        typeof current?.pressure_msl === 'number' ? current.pressure_msl : 0,
+      isDay: typeof current?.is_day === 'number' ? current.is_day : null
     },
     daily: {
       temperatureUnit:

@@ -6,7 +6,7 @@ async function fetchWeather (coordinates, units) {
       latitude: coordinates.latitude, // Tokyo: 35.41
       longitude: coordinates.longitude, // Tokyo: 139.46
       current:
-        'temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,precipitation,weather_code',
+        'temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,precipitation,pressure_msl,weather_code,visibility,uv_index,is_day',
       hourly: 'temperature_2m,weather_code',
       daily:
         'temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset',

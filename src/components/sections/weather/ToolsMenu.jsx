@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { IconCompare, IconFavouriteList } from '../../icons'
+import { IconCompare, IconFavouriteList, IconMoreInfo } from '../../icons'
 import { showModal } from '../../../features/modal/modalSlice'
 
 function ToolsMenu () {
@@ -16,6 +16,8 @@ function ToolsMenu () {
           role='menuitem'
           className='btn'
           onClick={() => openDialog('favourites')}
+          data-type='tool'
+          data-variant='ripple'
         >
           <span className='sr-only'>Show favourites</span>
 
@@ -28,6 +30,8 @@ function ToolsMenu () {
           role='menuitem'
           className='btn'
           onClick={() => openDialog('comparison')}
+          data-type='tool'
+          data-variant='ripple'
         >
           <span className='sr-only'>Show comparison</span>
 

@@ -43,31 +43,36 @@
   }
 
   &__details {
-    --card-base-width: 9rem;
-  }
-}
-
-.weather-current--loading {
-  .stack-grid {
-    border-radius: border-radius(20);
-    background-color: clr(loading-bg);
-    overflow: hidden;
-
-    & > picture {
-      width: 100%;
-      height: 100%;
-      max-height: 16.75rem;
+    --card-base-width: 9.5rem;
+    @include mq(small) {
+      &[data-extended='true'] {
+        --card-base-width: 11.25rem;
+      }
     }
   }
 
-  &__highlighted-content {
-    display: grid;
-    place-items: center;
-    gap: size(100);
-  }
+  .weather-current--loading {
+    .stack-grid {
+      border-radius: border-radius(20);
+      background-color: clr(loading-bg);
+      overflow: hidden;
 
-  .loading__icon > * {
-    width: 3.5rem;
-    height: 3.5rem;
+      & > picture {
+        width: 100%;
+        height: 100%;
+        max-height: 16.75rem;
+      }
+    }
+
+    &__highlighted-content {
+      display: grid;
+      place-items: center;
+      gap: size(100);
+    }
+
+    .loading__icon > * {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
   }
 }
