@@ -7,6 +7,7 @@ import {
 import { setLocation } from '../../features/location/locationSlice'
 import IconDispalyWeather from '../icons/IconDispalyWeather'
 import { toggleIsListEmpty } from '../../features/modal/modalSlice'
+import { useEffect } from 'react'
 
 function FavouriteList ({ favourites }) {
   const dispatch = useDispatch()
