@@ -11,7 +11,13 @@ function ApiError ({ onRetry }) {
         We couldn’t connect to the server (API error). Please try again in a few
         moments.
       </p>
-      <button type='button' className='btn btn--error' onClick={onRetry}>
+      <button
+        type='button'
+        className='btn'
+        onClick={onRetry}
+        data-type='error'
+        data-variant='ripple'
+      >
         <IconRetry></IconRetry>
         <span>Retry</span>
       </button>
