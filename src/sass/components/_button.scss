@@ -25,6 +25,8 @@ Base button styles
 Ripple on hover variant
 =========================================== */
 .btn[data-variant='ripple'] {
+  --animation-duration: 800ms;
+  --animation-delay: 100ms;
   position: relative;
   z-index: 1;
   isolation: isolate;
@@ -45,7 +47,7 @@ Ripple on hover variant
   &::before {
     width: size(100);
     background-color: var(--button-hover-bg, #{clr(btn-bg-hover)});
-    transition-delay: 70ms;
+    transition-delay: var(--animation-delay);
     z-index: -1;
   }
   &::after {
@@ -60,7 +62,7 @@ Ripple on hover variant
   &:hover::before,
   &:hover::after {
     animation-name: expand;
-    animation-duration: 500ms;
+    animation-duration: var(--animation-duration);
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
   }
@@ -68,7 +70,7 @@ Ripple on hover variant
   &:not(:hover):not(:focus-visible)::before,
   &:not(:hover):not(:focus-visible)::after {
     animation: shrink;
-    animation-duration: 500ms;
+    animation-duration: var(--animation-duration);
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
   }
@@ -192,6 +194,13 @@ Button types
   }
 }
 
+.btn[data-type='tool'] {
+  --button-hover-bg: #{clr(tools-btn-bg-hover)};
+  --button-hover-bg-secondary: clr(tools-btn-bg-hover-secondary);
+  border-radius: 50%;
+  padding: size(125);
+}
+
 /* ==========================================
 Animations
 =========================================== */
@@ -205,14 +214,14 @@ Animations
   }
   100% {
     opacity: 1;
-    transform: scale(45);
+    transform: scale(100);
   }
 }
 
 @keyframes shrink {
   0% {
     opacity: 1;
-    transform: scale(45);
+    transform: scale(100);
   }
   80% {
     transform: scale(0);
