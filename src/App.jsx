@@ -17,7 +17,7 @@ function App () {
   const { comparisonList } = useSelector(store => store.comparison)
   const isModalOpen = modalState !== 'closed'
 
-  const debouncedQuery = useDebounce(query, 500)
+  const debouncedQuery = useDebounce(query, 100)
   const {
     data: locationList = [],
     isPending: loadingLocation,
