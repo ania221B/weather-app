@@ -6,7 +6,6 @@ import {
 import { IconCompare } from '../icons'
 
 function CompareButton ({ data }) {
-  console.log('CompareButton data:', data)
   const dispatch = useDispatch()
   const isCompared = useSelector(store =>
     checkIsCompared(store, data.location.id)
