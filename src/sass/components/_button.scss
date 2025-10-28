@@ -29,6 +29,8 @@ Ripple on hover variant
   --animation-delay: 100ms;
   position: relative;
   z-index: 1;
+  transition: color calc(var(--animation-duration) / 2);
+  will-change: color;
   isolation: isolate;
   overflow: hidden;
 
