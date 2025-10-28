@@ -16,7 +16,7 @@
 
   display: grid;
   grid-auto-flow: column;
-  gap: 0 size(300);
+  gap: 0 size(200);
   place-content: center;
 
   @include mq(small) {

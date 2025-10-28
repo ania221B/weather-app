@@ -57,7 +57,8 @@
     transform: translateY(-35%);
   }
 
-  & > * {
-    max-inline-size: 2.5rem;
+  svg {
+    max-inline-size: 1.5rem;
+    max-block-size: 1.5rem;
   }
 }
