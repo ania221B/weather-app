@@ -14,8 +14,6 @@ function WeatherCurrent ({ currentWeather }) {
   const { selected } = useSelector(store => store.location)
   const [isDetailsDisplayed, setIsDetailsDisplayed] = useState(false)
 
-  console.log('Current Weather:', currentWeather)
-
   return (
     <section className='weather-current flow'>
       <div className='stack-grid'>
@@ -41,6 +39,7 @@ function WeatherCurrent ({ currentWeather }) {
         <div className='main-content weather-current__highlighted-content'>
           <div className='weather-current__tool-buttons btn-container'>
             <FavouriteButton location={selected}></FavouriteButton>
+
             <CompareButton
               data={{ location: selected, weather: currentWeather }}
             ></CompareButton>
