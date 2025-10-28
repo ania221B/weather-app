@@ -71,4 +71,7 @@ $semantic-colors: (
   tools-btn-bg-hover-secondary: rgba(map.get($colors, primary, 500), 0.8),
   skip-bg: map.get($colors, primary, 500),
   skip-br: map.get($colors, primary, 500),
+  tooltip-bg: map.get($colors, neutral, 800),
+  tooltip-bg-secondary: map.get($colors, neutral, 900),
+  tooltip-text: map.get($colors, neutral, 000),
 );

@@ -4,6 +4,7 @@ import {
   checkIsFavourited
 } from '../../features/favourites/favouritesSlice'
 import IconFavourites from '../icons/IconFavourites'
+import { Tooltip } from '../ui'
 
 function FavouriteButton ({ location }) {
   const dispatch = useDispatch()
@@ -12,18 +13,20 @@ function FavouriteButton ({ location }) {
   )
 
   return (
-    <button
-      type='button'
-      className={isFavourited ? 'btn filled' : 'btn '}
-      onClick={() => {
-        dispatch(addTofavourites(location))
-      }}
-      data-type='icon'
-      data-variant='scale-up'
-    >
-      <span className='sr-only'>Add to favourites</span>
-      <IconFavourites></IconFavourites>
-    </button>
+    <Tooltip text='Add to favourites'>
+      <button
+        type='button'
+        className={isFavourited ? 'btn filled' : 'btn'}
+        onClick={() => {
+          dispatch(addTofavourites(location))
+        }}
+        data-type='icon'
+        data-variant='scale-up'
+      >
+        <span className='sr-only'>Add to favourites</span>
+        <IconFavourites></IconFavourites>
+      </button>
+    </Tooltip>
   )
 }
 export default FavouriteButton

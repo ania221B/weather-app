@@ -8,6 +8,7 @@ import { setLocation } from '../../features/location/locationSlice'
 import IconDispalyWeather from '../icons/IconDispalyWeather'
 import { toggleIsListEmpty } from '../../features/modal/modalSlice'
 import { useEffect } from 'react'
+import { Tooltip } from '../ui'
 
 function FavouriteList ({ favourites }) {
   const dispatch = useDispatch()
@@ -46,30 +47,34 @@ function FavouriteList ({ favourites }) {
                 <dt>Country:</dt>
                 <dd>{country}</dd>
               </dl>
-              <button
-                type='button'
-                className='btn'
-                onClick={() =>
-                  dispatch(setLocation({ id, name, country, coordinates }))
-                }
-                data-variant='scale-up'
-              >
-                <IconDispalyWeather></IconDispalyWeather>
+              <Tooltip text='See weather'>
+                <button
+                  type='button'
+                  className='btn'
+                  onClick={() =>
+                    dispatch(setLocation({ id, name, country, coordinates }))
+                  }
+                  data-variant='scale-up'
+                >
+                  <IconDispalyWeather></IconDispalyWeather>
 
-                <span className='sr-only'>See Weather</span>
-              </button>
-              <button
-                type='button'
-                className='btn'
-                onClick={() => {
-                  dispatch(removeFromFavourites({ id }))
-                }}
-                data-variant='scale-up'
-              >
-                <IconDelete></IconDelete>
+                  <span className='sr-only'>See Weather</span>
+                </button>
+              </Tooltip>
+              <Tooltip text='Remove'>
+                <button
+                  type='button'
+                  className='btn'
+                  onClick={() => {
+                    dispatch(removeFromFavourites({ id }))
+                  }}
+                  data-variant='scale-up'
+                >
+                  <IconDelete></IconDelete>
 
-                <span className='sr-only'>Remove</span>
-              </button>
+                  <span className='sr-only'>Remove</span>
+                </button>
+              </Tooltip>
             </li>
           )
         })}
