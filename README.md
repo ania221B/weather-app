@@ -16,6 +16,7 @@ This is a solution to the [Weather app challenge on Frontend Mentor](https://www
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Credits](#credits)
+- [License](#license)
 
 ## Overview
 
@@ -416,3 +417,14 @@ I am not entirely sure whether a menubar is the most appropriate pattern for thi
 - This solution was made using a template I build while taking [Beyond CSS](https://www.beyondcss.dev/) course by [Kevin Powell](https://www.kevinpowell.co/). You can find Kevin's template on [his GitHub](https://github.com/kevin-powell)
 - Weather date powered by [Open-Meteo API](https://open-meteo.com/).
 - Additional icons - not included in challenge assets - provided by [Lucide](https://lucide.dev)
+
+## License
+
+This project is licensed under the [CC BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/).  
+You may use or adapt this work **non-commercially**, but **credit is required**.
+
+### Attribution
+
+If you use or build on this project, please include a link back to:  
+Ania Buwaj – https://github.com/ania221b  
+You can include this in your project's README or credits section.
